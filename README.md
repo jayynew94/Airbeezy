@@ -1,8 +1,10 @@
-# Airbeezy
-airbnb clone
-![airbnb-db-schema](https://user-images.githubusercontent.com/93681678/186716756-d0f563fb-6a8c-4839-bb8a-5a709e2d3a79.png)
+# AirBeezy 
 
-# `AirBeezy`
+## Database Schema Design
+
+![airbnb-dbdiagram]
+
+[airbnb-dbdiagram]: ../assets/airbnb_dbdiagram.png
 
 ## API Documentation
 
@@ -506,7 +508,7 @@ Updates and returns an existing spot.
 * Require proper authorization: Spot must belong to the current user
 * Request
   * Method: PUT
-  * URL: /api/spots/:spotID
+  * URL: /api/spots/:spotId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1103,7 +1105,7 @@ Create and return a new booking from a spot specified by id.
 * Require Authentication: true
 * Require proper authorization: Spot must NOT belong to the current user
 * Request
-  * Method: Post
+  * Method: POST
   * URL: /api/spots/:spotId/bookings
   * Body:
 
@@ -1336,7 +1338,7 @@ Delete an existing image for a Spot.
 * Require proper authorization: Spot must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/images/:imageId
+  * URL: /api/spot-images/:imageId
   * Body: none
 
 * Successful Response
@@ -1373,7 +1375,7 @@ Delete an existing image for a Review.
 * Require proper authorization: Review must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/review/:reviewId
+  * URL: /api/review-images/:imageId
   * Body: none
 
 * Successful Response
