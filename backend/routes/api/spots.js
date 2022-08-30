@@ -151,6 +151,47 @@ router.get("/:spotId", async (req, res) => {
   return res.json(oneSpot);
 });
 
+//CREATE New Spot
+router.post("/", requireAuth, async (req, res) => {
+  const { address, city, state, country, lat, lng, name, description, price } =
+    req.body;
+  const userId = req.user.dataValues.id;
+
+  const createSpot = await Spot.create({
+    ownerId: userId,
+    address,
+    city,
+    state,
+    country,
+    lat,
+    lng,
+    name,
+    description,
+    price,
+  });
+
+  if (!createSpot) {
+    res.status(400);
+    return res.json({
+      message: "Validation Error",
+      statusCode: 400,
+      errors: {
+        address: "Street address is required",
+        city: "City is required",
+        state: "State is required",
+        country: "Country is required",
+        lat: "Latitude is not valid",
+        lng: "Longitude is not valid",
+        name: "Name must be less than 50 characters",
+        description: "Description is required",
+        price: "Price per day is required",
+      },
+    });
+  }
+  res.status(201);
+  return res.json(createSpot);
+});
+
 
 
 
