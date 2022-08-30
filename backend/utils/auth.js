@@ -57,10 +57,10 @@ const restoreUser = (req, res, next) => {
 const requireAuth = function (req, _res, next) {
   if (req.user) return next();
 
-  const err = new Error('Unauthorized');
-  err.title = 'Unauthorized';
-  err.errors = ['Unauthorized'];
-  err.status = 401;
+  const err = new Error('Forbidden');
+  err.title = 'Forbidden';
+  err.errors = ['Forbidden'];
+  err.status = 403;
   return next(err);
 }
 
