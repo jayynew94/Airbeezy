@@ -226,6 +226,56 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
   }
 });
 
+//edit an Spot
+router.put("/:spotId", async (req, res) => {
+  const { spotId } = req.params;
+  const { address, city, state, country, lat, lng, name, description, price } =
+    req.body;
+  const editSpot = await Spot.findByPk(spotId);
+
+  if (editSpot) {
+    editSpot.set({
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price,
+    });
+
+    await editSpot.save();
+
+    res.json(editSpot);
+  } else if (!spotId) {
+    res.status(400);
+    return res.json({
+      message: "Validation Error",
+      statusCode: 400,
+      errors: {
+        address: "Street address is required",
+        city: "City is required",
+        state: "State is required",
+        country: "Country is required",
+        lat: "Latitude is not valid",
+        lng: "Longitude is not valid",
+        name: "Name must be less than 50 characters",
+        description: "Description is required",
+        price: "Price per day is required",
+      },
+    });
+  }
+  if (!editSpot) {
+    res.status(404);
+    return res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404,
+    });
+  }
+});
+
 
 
 
