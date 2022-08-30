@@ -74,6 +74,48 @@ router.get("/", async (req, res) => {
    });
 });
 
+///GET current User Spots
+router.get("/current", requireAuth, async (req, res) => {
+  const currentSpot = await Spot.findAll({
+    where: {
+      ownerId: req.user.id,
+    },
+  });
+
+  for (let spot of currentSpot) {
+    const findImage = await SpotImage.findOne({
+      attributes: ["url"],
+      where: {
+        preview: true,
+        spotId: spot.id,
+      },
+      raw: true,
+    });
+
+    if (findImage) {
+      spot.dataValues.previewImage = findImage.url;
+    } else {
+      spot.dataValues.previewImage = null;
+    }
+
+    const findReview = await spot.getReviews({
+      attributes: 
+      [
+        [ sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]
+    ],
+      
+    });
+    if (findReview) {
+      spot.dataValues.avgRating = findReview[0].dataValues.avgRating;
+    } else {
+      spot.dataValues.avgRating = null;
+    }
+  }
+  res.status(200);
+  return res.json({
+    Spots: currentSpot,
+  });
+});
 
 
 
