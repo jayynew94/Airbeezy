@@ -192,6 +192,40 @@ router.post("/", requireAuth, async (req, res) => {
   return res.json(createSpot);
 });
 
+//create image
+router.post("/:spotId/images", requireAuth, async (req, res) => {
+  const { url, preview } = req.body;
+  const { spotId } = req.params;
+  const userId = req.user.id;
+  console.log(req.body)
+
+  const spots = await Spot.findByPk(spotId);
+
+  if (spots) {
+    const createImage = await SpotImage.create({
+      url,
+      spotId,
+      userId,
+      preview,
+    });
+
+    const imageAdd = {
+      id: createImage.id,
+      imageableId: createImage.spotId,
+      url: createImage.url,
+      preview,
+    };
+    res.status(200);
+    res.json(imageAdd);
+  } else {
+    res.status(404);
+    return res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404,
+    });
+  }
+});
+
 
 
 
