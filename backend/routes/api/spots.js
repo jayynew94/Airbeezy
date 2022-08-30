@@ -117,7 +117,39 @@ router.get("/current", requireAuth, async (req, res) => {
   });
 });
 
+//Get spot by spotId
+router.get("/:spotId", async (req, res) => {
+  const { spotId } = req.params;
+  console.log(req.params)
+  
+  const oneSpot = await Spot.findByPk(spotId, {
+    include: [
+      { model: User, as: "Owner", attributes: ["id", "firstName", "lastName"] },
+      { model: SpotImage, attributes: ["id", ["spotId", "imageableId"], "url"] },
+    ],
+    where: {
+      ownerId: req.user.id,
+    },
+  });
 
+  if (!oneSpot) {
+    return res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404,
+    });
+  }
+   const findReview = await oneSpot.getReviews({
+     attributes: [[sequelize.fn("AVG", sequelize.col("stars")), "avgRating"], [sequelize.fn("COUNT", sequelize.col("id")), "numReviews"]],
+   });
+   if (findReview) {
+     oneSpot.dataValues.avgRating = findReview[0].dataValues.avgRating;
+      oneSpot.dataValues.numReviews = findReview[0].dataValues.numReviews;
+     
+   } else {
+     oneSpot.dataValues.avgRating = null;
+   }
+  return res.json(oneSpot);
+});
 
 
 
