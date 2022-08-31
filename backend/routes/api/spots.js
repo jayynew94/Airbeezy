@@ -5,6 +5,7 @@ const {
   Review,
   Booking,
   SpotImage,
+  ReviewImage,
   sequelize,
 } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
@@ -297,6 +298,34 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 });
 
 
+//Get reviews by spot id
+router.get("/:spotId/reviews", async (req, res) => {
+  const { spotId } = req.params;
+
+  const getSpot = await Spot.findByPk(spotId)
+   if (!getSpot) {
+     res.status(404);
+     return res.json({
+       message: "Spot couldn't be found",
+       statusCode: 404,
+     });
+   }
+  const getReviews = await getSpot.getReviews({
+    include: [{ model: User, attributes: [
+      "id",
+      "firstName",
+      "lastName"
+    ]},
+    {model: ReviewImage, attributes:[
+      "id",
+      "url"
+    ]}
+  ],
+  });
+
+
+  return res.json(getReviews);
+});
 
 
 
