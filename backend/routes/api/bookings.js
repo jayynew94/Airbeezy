@@ -6,34 +6,52 @@ const router = express.Router();
 
 
 router.get("/current", requireAuth, async (req, res) => {
+    const userId = req.user.id
   const currentBooking = await Booking.findAll({
+    include: [
+      {
+        model: Spot,
+        attributes: [
+          "id",
+          "ownerId",
+          "address",
+          "city",
+          "country",
+          "lat",
+          "lng",
+          "name",
+          "price",
+        ],include:{model: SpotImage, where:{preview:true}}
+      },
+    ],
     where: {
-      userId: req.user.id,
+      userId: userId,
     },
+    nest: true,
   });
 
-  for (let booking of currentBooking) {
-    const spot = await booking.getSpot();
-    const findImage = await SpotImage.findOne({
-      attributes: ["url"],
-      where: {
-        preview: true,
-        spotId: spot.id,
-      },
-      raw: true,
-    });
-
-    if (findImage) {
-      spot.dataValues.preview = findImage.url;
-    } else {
-      spot.dataValues.preview = null;
+      let bookingList = []
+  currentBooking.forEach((booking) => {
+    bookingList.push(booking.toJSON())
+  
+})
+bookingList.forEach(booking => {
+  booking.Spot.SpotImages.forEach(spotImage => { 
+  
+    if(spotImage.preview === true){
+      booking.Spot.previewImage = spotImage.url
     }
-    booking.dataValues.Spot = spot;
-  }
-  res.status(200);
-  return res.json(currentBooking);
-});
+   
+  })
 
+
+  delete booking.Spot.SpotImages
+
+});
+    return res.json({
+        "bookings": bookingList
+    })
+})
 
 
 //edit a booking

@@ -1,13 +1,12 @@
 const express = require("express");
+
 const { Spot, User, Review, ReviewImage, SpotImage } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
 const router = express.Router();
 
 //Get reviews of current User
 router.get("/current", requireAuth, async (req, res) => {
-   const newArr =[]
   const userId = req.user.dataValues.id;
-    const spotId = req.params
   const getReviews = await Review.findAll({
     include: [
       { model: User, attributes: ["id", "firstName", "lastName"]},
@@ -21,20 +20,27 @@ router.get("/current", requireAuth, async (req, res) => {
     },
     nest: true
   });
-  
+    
+  let reviewList = []
   getReviews.forEach((review) => {
-       const getPreview =  SpotImage.findOne(spotId, {
-        where: {
-        id: review.id,
+    reviewList.push(review.toJSON())
+   console.log(review.toJSON())
+})
+reviewList.forEach(review => {
+  review.Spot.SpotImages.forEach(spotImage => { 
+  
+    if(spotImage.preview === true){
+      review.Spot.previewImage = spotImage.url
+    }
+  })
 
-     },
-    });
-   
-    newArr.push(getPreview)
+
+  delete review.Spot.SpotImages
+
 })
  return res.json({
-     "Reviews":getReviews
- })
+   "Reviews":reviewList
+  })
  
 });
     //create image for review
