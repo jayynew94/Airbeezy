@@ -388,6 +388,28 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
   }
 });
 
+//get bookings based on spotID
+router.get("/:spotId/bookings", requireAuth, async (req, res) => {
+  const { spotId } = req.params;
+
+  const getSpot = await Spot.findByPk(spotId);
+
+  const getAllBookings = await Booking.findAll({
+    where: { spotId },
+    include: [{ model: User, attributes: ["id", "firstName", "lastName"] }],
+  });
+
+  if (getSpot) {
+    res.status(200);
+    res.json(getAllBookings);
+  } else {
+    res.status(404);
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404,
+    });
+  }
+});
 
 //### Create a Booking from a Spot based on the Spot's id
 router.post("/:spotId/bookings", requireAuth, async (req, res) => {
