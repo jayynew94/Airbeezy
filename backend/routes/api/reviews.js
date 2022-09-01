@@ -63,7 +63,7 @@ router.get("/current", requireAuth, async (req, res) => {
     } else {
       res.status(404);
       return res.json({
-        message: "Spot couldn't be found",
+        message: "Review couldn't be found",
         statusCode: 404,
       });
     }
