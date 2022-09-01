@@ -322,11 +322,71 @@ router.get("/:spotId/reviews", async (req, res) => {
     ]}
   ],
   });
-
-
-  return res.json(getReviews);
+  return res.json({
+    "Reviews":getReviews
+  });
 });
 
+//Create a review for a spot based on ID
+router.post("/:spotId/reviews", requireAuth, async (req, res) => {
+  const { spotId } = req.params;
+
+  const { review, stars } = req.body;
+  const userId = req.user.dataValues.id;
+
+  const getSpot = await Spot.findByPk(spotId);
+
+  const getAllReviews = await Review.findAll({
+    include: [
+      {
+        model: Spot,
+        where: {
+          id: spotId,
+        },
+      },
+    ],
+  });
+  if (getSpot) {
+    let reviewed;
+    for (let reviews of getAllReviews) {
+      if (reviews.userId === userId) {
+        reviewed = true;
+      }
+    }
+    if (reviewed) {
+      res.status(403);
+      return res.json({
+        message: "User already has a review for this spot",
+        statusCode: 403,
+      });
+    } else if (stars < 1 || stars > 5) {
+      res.status(400);
+      return res.json({
+        message: "Validation error",
+        statusCode: 400,
+        errors: {
+          review: "Review text is required",
+          stars: "Stars must be an integer from 1 to 5",
+        },
+      });
+    } else {
+      const createReview = await Review.create({
+        userId,
+        spotId,
+        review,
+        stars,
+      });
+      res.status(201);
+      return res.json(createReview);
+    }
+  } else {
+    res.status(404);
+    return res.json({
+      message: "Review couldn't be found",
+      statusCode: 404,
+    });
+  }
+});
 
 
 
