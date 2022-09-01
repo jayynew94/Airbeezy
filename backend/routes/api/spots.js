@@ -62,9 +62,9 @@ router.get("/", async (req, res) => {
     ]
     });
       if(findReview){
-        spot.dataValues.avgRating = findReview[0].dataValues.avgRating
+        spot.dataValues.avgRating = findReview[0].dataValues.avgRating.toFixed(2)
       }else{
-        spot.dataValues.avgRating = null;
+        spot.dataValues.avgRating = "";
       }
   }
   res.status(200);
@@ -190,7 +190,18 @@ router.post("/", requireAuth, async (req, res) => {
     });
   }
   res.status(201);
-  return res.json(createSpot);
+  return res.json({
+    ownerId: userId,
+    address,
+    city,
+    state,
+    country,
+    lat,
+    lng,
+    name,
+    description,
+    price,
+  });
 });
 
 //create image
@@ -212,7 +223,6 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
 
     const imageAdd = {
       id: createImage.id,
-      imageableId: createImage.spotId,
       url: createImage.url,
       preview,
     };
@@ -401,7 +411,9 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
 
   if (getSpot) {
     res.status(200);
-    res.json(getAllBookings);
+    res.json({
+      "Bookings":getAllBookings
+    });
   } else {
     res.status(404);
     res.json({

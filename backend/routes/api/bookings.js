@@ -4,7 +4,7 @@ const { requireAuth } = require("../../utils/auth");
 const { Op } = require("sequelize");
 const router = express.Router();
 
-
+//GEt current user bookings
 router.get("/current", requireAuth, async (req, res) => {
     const userId = req.user.id
   const currentBooking = await Booking.findAll({
@@ -16,6 +16,7 @@ router.get("/current", requireAuth, async (req, res) => {
           "ownerId",
           "address",
           "city",
+          "state",
           "country",
           "lat",
           "lng",
@@ -49,7 +50,7 @@ bookingList.forEach(booking => {
 
 });
     return res.json({
-        "bookings": bookingList
+        "Bookings": bookingList
     })
 })
 
