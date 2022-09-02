@@ -199,18 +199,7 @@ router.post("/", requireAuth, async (req, res) => {
     });
   }
   res.status(201);
-  return res.json({
-    ownerId: userId,
-    address,
-    city,
-    state,
-    country,
-    lat,
-    lng,
-    name,
-    description,
-    price,
-  });
+  return res.json(createSpot);
 });
 
 //create image

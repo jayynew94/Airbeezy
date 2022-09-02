@@ -20,24 +20,23 @@ router.get("/current", requireAuth, async (req, res) => {
     },
     nest: true
   });
-    
+
+ 
   let reviewList = []
   getReviews.forEach((review) => {
     reviewList.push(review.toJSON())
-   console.log(review.toJSON())
 })
+
+
 reviewList.forEach(review => {
   review.Spot.SpotImages.forEach(spotImage => { 
-  
     if(spotImage.preview === true){
       review.Spot.previewImage = spotImage.url
     }
   })
-
-
   delete review.Spot.SpotImages
-
 })
+  
  return res.json({
    "Reviews":reviewList
   })
