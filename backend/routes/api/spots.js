@@ -132,7 +132,7 @@ router.get("/:spotId", async (req, res) => {
   const oneSpot = await Spot.findByPk(spotId, {
     include: [
       { model: User, as: "Owner", attributes: ["id", "firstName", "lastName"] },
-      { model: SpotImage, attributes: ["id", ["spotId", "imageableId"], "url"] },
+      { model: SpotImage, attributes: ["id", "url", "preview"] },
     ],
     where: {
       ownerId: req.user.id,
