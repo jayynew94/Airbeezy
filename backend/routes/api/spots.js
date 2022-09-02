@@ -62,7 +62,7 @@ router.get("/", async (req, res) => {
     ]
     });
       const avg = findReview[0].dataValues.avgRating
-      const avgRes = Number(avg).toFixed(1)
+      const avgRes = Number(avg).toFixed(2)
       
       if(findReview){
         spot.dataValues.avgRating = avgRes
