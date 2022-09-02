@@ -110,10 +110,12 @@ router.get("/current", requireAuth, async (req, res) => {
     ],
       
     });
+     const avg = findReview[0].dataValues.avgRating;
+     const avgRes = Number(avg).toFixed(2);
     if (findReview) {
-      spot.dataValues.avgRating = findReview[0].dataValues.avgRating;
+      spot.dataValues.avgRating = avgRes
     } else {
-      spot.dataValues.avgRating = null;
+      spot.dataValues.avgRating = "";
     }
   }
   res.status(200);
@@ -146,8 +148,11 @@ router.get("/:spotId", async (req, res) => {
    const findReview = await oneSpot.getReviews({
      attributes: [[sequelize.fn("AVG", sequelize.col("stars")), "avgRating"], [sequelize.fn("COUNT", sequelize.col("id")), "numReviews"]],
    });
+
+    const avg = findReview[0].dataValues.avgRating;
+    const avgRes = Number(avg).toFixed(2);
    if (findReview) {
-     oneSpot.dataValues.avgRating = findReview[0].dataValues.avgRating;
+     oneSpot.dataValues.avgRating = avgRes
       oneSpot.dataValues.numReviews = findReview[0].dataValues.numReviews;
      
    } else {
