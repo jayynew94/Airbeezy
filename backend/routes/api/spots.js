@@ -61,11 +61,15 @@ router.get("/", async (req, res) => {
           [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]
     ]
     });
+      const avg = findReview[0].dataValues.avgRating
+      const avgRes = Number(avg).toFixed(1)
+      
       if(findReview){
-        spot.dataValues.avgRating = findReview[0].dataValues.avgRating.toFixed(2)
+        spot.dataValues.avgRating = avgRes
       }else{
         spot.dataValues.avgRating = "";
       }
+     
   }
   res.status(200);
   res.json({ 
