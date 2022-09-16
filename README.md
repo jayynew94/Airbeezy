@@ -8,6 +8,13 @@ Live site Link: [Airbeezy](https://airbeezy.herokuapp.com/)
 
 Please see all links below for Github Wiki:
 
+[Feature List](https://github.com/jayynew94/Airbeezy/wiki/Feature-List)
+
+[DataBase Schema](https://github.com/jayynew94/Airbeezy/wiki/DataBase-Schema)
+
+[API Routes](https://github.com/jayynew94/Airbeezy/wiki/API-Documentation)
+
+[Redux Store State Shape](https://github.com/jayynew94/Airbeezy/wiki/Redux-Store-Shape)
 
 
 
@@ -16,14 +23,13 @@ Please see all links below for Github Wiki:
 
 
 
-
-This Project was built with:
-JavaScript
-POSTgres
-Sequelize
-Express
-React
-Redux
+ # This Project was built with:
+-JavaScript
+-POSTgres
+-Sequelize
+-Express
+-React
+-Redux
 
 # Features
 Photo of home page will go here 
