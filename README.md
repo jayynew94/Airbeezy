@@ -30,9 +30,3 @@ Photo of home page will go here
 
 
 
-# Feature List
-
-User Authentication
-- User will be able to create an account using a username, email, and password
-- Users without an account will be able to view the account through demo-user
-- Logged in users will have access to 
