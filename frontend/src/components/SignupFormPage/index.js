@@ -40,6 +40,7 @@ function SignupFormPage() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <h1>SignUp</h1>
       <label>
         FirstName
         <input

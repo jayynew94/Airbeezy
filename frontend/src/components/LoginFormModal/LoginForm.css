@@ -1,0 +1,16 @@
+.login-page {
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+ margin-left: 90px;
+ margin-bottom: 30px;
+  align-items: right;
+  flex-direction: column;
+}
+
+.login-btn{
+    margin: 10px;
+    margin-right: 45px;
+}
