@@ -24,12 +24,12 @@ Please see all links below for Github Wiki:
 
 
  # This Project was built with:
--JavaScript
--POSTgres
--Sequelize
--Express
--React
--Redux
+- JavaScript
+- POSTgres
+- Sequelize
+- Express
+- React
+- Redux
 
 # Features
 Photo of home page will go here 
