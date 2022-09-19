@@ -1,16 +1,24 @@
 
 
 const LOAD = 'spots/LOAD'
+const ADDSPOT = 'spots/ADD'
 
 
 const load = spotlist => {
-
   return {
     type: LOAD,
     spotlist
   }
-
 }
+
+const addSpot = spotlist => {
+  return {
+    type: ADDSPOT,
+    spotlist
+  }
+}
+
+
 
 
 export const getAllSpots = () => async dispatch => {
@@ -22,10 +30,21 @@ export const getAllSpots = () => async dispatch => {
         //  console.log(spotlist.Spots, "this is spotlist ")
          dispatch(load(spotlist.Spots));
       }
-   
-      return response
 }
 
+export const editSpot = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/spots/${payload.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (response.ok) {
+    const updatedSpot = await response.json();
+    dispatch(addSpot(updatedSpot));
+   return updatedSpot
+  }
+}
 
 const initialState = {}
 // console.log(initialState,"this is the initial state")
@@ -49,4 +68,4 @@ const spotReducer = (state =initialState, action) =>{
 }
 
 
-export default spotReducer
+export default spotReducer;
