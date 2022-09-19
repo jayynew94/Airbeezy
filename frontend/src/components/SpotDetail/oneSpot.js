@@ -12,9 +12,9 @@ const SpotDetail = () => {
   const spot = useSelector((state) => state.spots[spotId]);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getSpotId(spotId));
-  }, [spotId, dispatch]);
+  // useEffect(() => {
+  //   dispatch(getSpotId(spotId));
+  // }, [spotId, dispatch]);
 
   if(!spot){ return (
       <h1>loading</h1>

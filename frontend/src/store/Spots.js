@@ -1,6 +1,7 @@
-
+import { csrfFetch } from "./csrf"
 
 const LOAD = 'spots/LOAD'
+const CREATE = 'spots/CREATE'
 
 
 
@@ -11,10 +12,12 @@ const load = spotlist => {
   }
 }
 
-
-
-
-
+const addSpot = spotlist => {
+  return {
+    type: CREATE,
+    spotlist
+  }
+}
 
 export const getAllSpots = () => async dispatch => {
     // console.log("before fetch")
@@ -37,17 +40,31 @@ export const getSpotId = (spotId) => async (dispatch) => {
   }
 };
 
+export const spotForm = (payload) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (response.ok) {
+    const newspot = await response.json();
+    dispatch(addSpot(newspot));
+    return newspot;
+  }
+};
+
 
 
 
 const initialState = {}
 // console.log(initialState,"this is the initial state")
 
-const spotReducer = (state =initialState, action) =>{
+const spotReducer = (state = initialState, action) =>{
     switch (action.type) {
       case LOAD:
         const allSpots = {};
-        // console.log(action, "this is action console")
+        console.log(action.spotlist, "whats going on man")
         action.spotlist.forEach((spot) => {
           allSpots[spot.id] = spot;
         });
@@ -56,23 +73,24 @@ const spotReducer = (state =initialState, action) =>{
           ...state,
           spotlist: action.spotlist,
         };
-      // case ADDSPOT:
-      //   if (!state[action.spotlist.id]) {
-      //     const newState = {
-      //       ...state,
-      //       [action.spotlist.id]: action.spotlist,
-      //     };
-      //     const spotList = newState.spotlist.map((id) => newState[id]);
-      //     spotList.push(action.spotlist);
-      //     return newState;
-      //   }
-      //   return {
-      //     ...state,
-      //     [action.spotlist.id]: {
-      //       ...state[action.spotlist.id],
-      //       ...action.spotlist,
-      //     },
-        // };
+      case CREATE:
+        if (!state[action.spotlist.id]) {
+          const newState = {
+            ...state,
+            [action.spotlist.id]: action.spotlist,
+          };
+          const spotList = newState.spotlist.map((id) => newState[id]);
+          spotList.push(action.spotlist);
+          newState.spotlist = spotList
+          return newState;
+        }
+        return {
+          ...state,
+          [action.spotlist.id]: {
+            ...state[action.spotlist.id],
+            ...action.spotlist,
+          },
+        };
       default:
         return state;
     }

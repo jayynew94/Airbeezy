@@ -9,6 +9,7 @@ import SpotComponent from "./components/SpotComponent/getSpots";
 import SpotDetail from "./components/SpotDetail/oneSpot";
 import { getAllSpots } from "./store/Spots";
 import '../src/components/Navigation/navigation.css'
+import CreateSpotForm from "./components/CreateSpotForm/CreateSpot";
 
 
 function App() {
@@ -20,9 +21,8 @@ function App() {
   }, [dispatch]);
 
   return (
-    
     <>
-      <Navigation  className="nav" isLoaded={isLoaded} />
+      <Navigation className="nav" isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route path="/signup">
@@ -31,13 +31,16 @@ function App() {
           <Route exact path="/">
             <SpotComponent />
           </Route>
-          <Route path='/spots/:spotId'>
+          <Route path="/newspot">
+            <CreateSpotForm />
+          </Route>
+
+          <Route path="/spots/:spotId">
             <SpotDetail />
           </Route>
         </Switch>
       )}
     </>
-    
   );
 }
 
