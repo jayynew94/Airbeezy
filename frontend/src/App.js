@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SpotComponent from "./components/SpotComponent/getSpots";
+import SpotDetail from "./components/SpotDetail/oneSpot";
 import { getAllSpots } from "./store/Spots";
 import '../src/components/Navigation/navigation.css'
 
@@ -27,8 +28,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <SpotComponent />
+          </Route>
+          <Route path='/spots/:spotId'>
+            <SpotDetail />
           </Route>
         </Switch>
       )}

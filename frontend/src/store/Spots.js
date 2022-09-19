@@ -1,7 +1,7 @@
 
 
 const LOAD = 'spots/LOAD'
-const ADDSPOT = 'spots/ADD'
+
 
 
 const load = spotlist => {
@@ -11,12 +11,7 @@ const load = spotlist => {
   }
 }
 
-const addSpot = spotlist => {
-  return {
-    type: ADDSPOT,
-    spotlist
-  }
-}
+
 
 
 
@@ -32,19 +27,18 @@ export const getAllSpots = () => async dispatch => {
       }
 }
 
-export const editSpot = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/spots/${payload.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
+export const getSpotId = (spotId) => async (dispatch) => {
+  console.log(spotId, "this is the spot id")
+  const response = await fetch(`/api/spots/${spotId}`);
 
   if (response.ok) {
-    const updatedSpot = await response.json();
-    dispatch(addSpot(updatedSpot));
-   return updatedSpot
+    const spot = await response.json();
+    dispatch(load(spot));
   }
-}
+};
+
+
+
 
 const initialState = {}
 // console.log(initialState,"this is the initial state")
@@ -60,10 +54,27 @@ const spotReducer = (state =initialState, action) =>{
         return {
           ...allSpots,
           ...state,
-          spotlist: (action.spotlist)
+          spotlist: action.spotlist,
         };
-        default:
-            return state
+      // case ADDSPOT:
+      //   if (!state[action.spotlist.id]) {
+      //     const newState = {
+      //       ...state,
+      //       [action.spotlist.id]: action.spotlist,
+      //     };
+      //     const spotList = newState.spotlist.map((id) => newState[id]);
+      //     spotList.push(action.spotlist);
+      //     return newState;
+      //   }
+      //   return {
+      //     ...state,
+      //     [action.spotlist.id]: {
+      //       ...state[action.spotlist.id],
+      //       ...action.spotlist,
+      //     },
+        // };
+      default:
+        return state;
     }
 }
 

@@ -2,6 +2,7 @@ import {useSelector} from 'react-redux'
 import {useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import { getAllSpots } from '../../store/Spots'
+import { NavLink } from 'react-router-dom'
 
 
 const SpotComponent = () =>{
@@ -13,13 +14,13 @@ const SpotComponent = () =>{
     },[dispatch])
 
      const spots = useSelector((state) => state.spots.spotlist);
-     
+     const user = useSelector((state) => state.session.user)
+
     if(!spots){
         return null
     }
 
     const spotlist = spots.map((spot) =>{
-        
         return (    
             <div key={spot.id}>   
              <p>{spot.ownerId}</p>
@@ -33,7 +34,9 @@ const SpotComponent = () =>{
             <p>{spot.description}</p>
             <p>{spot.price}</p>
             <p>{spot.avgRating}</p>
-            <p>{spot.previewImage}</p>
+            <NavLink to={`/spots/${spot.id}`}>
+            {spot.previewImage}
+            </NavLink>
             </div>   
             )
     })
@@ -42,6 +45,11 @@ const SpotComponent = () =>{
         <div>
             <h1>AllSpots</h1>
             {spotlist}
+            {user && (
+                <div>
+                click me to edit
+                </div>
+            )}
         </div>
     )
 }

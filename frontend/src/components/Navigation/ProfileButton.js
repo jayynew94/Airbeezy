@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import * as sessionActions from "../../store/session";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-
+  const history = useHistory();
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -28,10 +30,16 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  const create = e => {
+  e.preventDefault()
+  history.push('/newspot')
+  }
+
   return (
     <>
+      <button onClick={create}>new btn</button>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <i className="fa-solid fa-user">Menu</i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
