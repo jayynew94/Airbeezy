@@ -10,6 +10,7 @@ import SpotDetail from "./components/SpotDetail/oneSpot";
 import { getAllSpots } from "./store/Spots";
 import '../src/components/Navigation/navigation.css'
 import CreateSpotForm from "./components/CreateSpotForm/CreateSpot";
+import EditSpotForm from "./components/EditSpotForm/EditSpot";
 
 
 function App() {
@@ -34,9 +35,11 @@ function App() {
           <Route path="/newspot">
             <CreateSpotForm />
           </Route>
-
-          <Route path="/spots/:spotId">
+          <Route exact path="/spots/:spotId">
             <SpotDetail />
+          </Route>
+          <Route path="/spots/:spotId/edit">
+          <EditSpotForm />
           </Route>
         </Switch>
       )}

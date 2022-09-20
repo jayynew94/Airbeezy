@@ -2,7 +2,8 @@ import { csrfFetch } from "./csrf"
 
 const LOAD = 'spots/LOAD'
 const CREATE = 'spots/CREATE'
-
+const UPDATE = 'spots/UPDATE'
+const DELETE = 'spots/DELETE'
 
 
 const load = spotlist => {
@@ -18,6 +19,21 @@ const addSpot = spotlist => {
     spotlist
   }
 }
+
+const updateSpot = spotlist => {
+  return {
+    type: UPDATE,
+    spotlist
+  }
+}
+
+const removeSpot = spotlist => {
+  return{
+    type: DELETE,
+    spotlist
+  }
+}
+
 
 export const getAllSpots = () => async dispatch => {
     // console.log("before fetch")
@@ -54,8 +70,32 @@ export const spotForm = (payload) => async (dispatch) => {
   }
 };
 
+export const editSpot = (payload) => async (dispatch) => {
+   const response = await csrfFetch(`/api/spots/${payload.id}`, {
+     method: "PUT",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify(payload),
+   });
 
+   if (response.ok) {
+     const updatedSpot = await response.json();
+     dispatch(updateSpot(updatedSpot));
+     return updatedSpot;
+   }
+}
 
+export const deleteSpot = (spotId) => async (dispatch) =>{
+  console.log(spotId, "this is delete spot thunk")
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+
+      method: "DELETE",
+    });
+
+    if(response.ok){
+      const deleteSpot = await response.json()
+      dispatch(removeSpot(spotId))
+    }
+}
 
 
 const initialState = {}
@@ -69,13 +109,15 @@ const spotReducer = (state = initialState, action) =>{
         action.spotlist.forEach((spot) => {
           allSpots[spot.id] = spot;
         });
-        return {
-          ...allSpots,
-          ...state,
-          spotlist: action.spotlist,
-        };
+        return allSpots
+        
       case CREATE:
-        if (!state[action.spotlist.id]) {
+          const newState = {...state}
+          console.log(action.spotlist.id)
+          newState[action.spotlist.id] = action.spotlist
+        return newState
+        case UPDATE:
+             if (!state[action.spotlist.id]) {
           const newState = {
             ...state,
             [action.spotlist.id]: action.spotlist,
@@ -92,6 +134,11 @@ const spotReducer = (state = initialState, action) =>{
             ...action.spotlist,
           },
         };
+        case DELETE:
+            const deleteState = {...state}
+            console.log(action, "this is action data in reducer")
+            delete deleteSpot[action.spotlist]
+            return deleteState
       default:
         return state;
     }

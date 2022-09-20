@@ -13,29 +13,29 @@ const SpotComponent = () =>{
         dispatch(getAllSpots());
     },[dispatch])
 
-     const spots = useSelector((state) => state.spots.spotlist);
-     const user = useSelector((state) => state.session.user)
-
+     const spots = useSelector((state) => Object.values(state.spots));
+     console.log(spots, "this is getallspots")
+     
     if(!spots){
         return null
     }
 
     const spotlist = spots.map((spot) =>{
         return (    
-            <div key={spot.id}>   
-             <p>{spot.ownerId}</p>
-            <p>{spot.address}</p>
-            <p>{spot.city}</p>
-            <p>{spot.state}</p>
-            <p>{spot.country}</p>
-            <p>{spot.lat}</p>
-            <p>{spot.lng}</p>
-            <p>{spot.name}</p>
-            <p>{spot.description}</p>
-            <p>{spot.price}</p>
-            <p>{spot.avgRating}</p>
-            <NavLink to={`/spots/${spot.id}`}>
-            {spot.previewImage}
+            <div key={spot?.id}>   
+             <p>{spot?.ownerId}</p>
+            <p>{spot?.address}</p>
+            <p>{spot?.city}</p>
+            <p>{spot?.state}</p>
+            <p>{spot?.country}</p>
+            <p>{spot?.lat}</p>
+            <p>{spot?.lng}</p>
+            <p>{spot?.name}</p>
+            <p>{spot?.description}</p>
+            <p>{spot?.price}</p>
+            <p>{spot?.avgRating}</p>
+            <NavLink to={`/spots/${spot?.id}`}>
+            {spot?.previewImage}
             </NavLink>
             </div>   
             )
@@ -45,11 +45,7 @@ const SpotComponent = () =>{
         <div>
             <h1>AllSpots</h1>
             {spotlist}
-            {user && (
-                <div>
-                click me to edit
-                </div>
-            )}
+          
         </div>
     )
 }
