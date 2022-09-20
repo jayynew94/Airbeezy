@@ -57,6 +57,7 @@ export const spotForm = (payload) => async (dispatch) => {
 
 
 
+
 const initialState = {}
 // console.log(initialState,"this is the initial state")
 
