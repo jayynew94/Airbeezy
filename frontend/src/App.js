@@ -11,7 +11,7 @@ import { getAllSpots } from "./store/Spots";
 import '../src/components/Navigation/navigation.css'
 import CreateSpotForm from "./components/CreateSpotForm/CreateSpot";
 import EditSpotForm from "./components/EditSpotForm/EditSpot";
-
+import CreateReviewForm from "./components/CreateReviewForm/CreateReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +41,10 @@ function App() {
           <Route path="/spots/:spotId/edit">
           <EditSpotForm />
           </Route>
+          <Route path="/spots/:spotId/reviews">
+            <CreateReviewForm />
+          </Route>
+
         </Switch>
       )}
     </>

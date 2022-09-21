@@ -2,4 +2,31 @@
     width: 600px;
     height: 600px;
     border-radius: 15px;
+    display: flex;
+    
+}
+
+.MainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}
+
+.reviewcard{
+    box-shadow: rgba(0, 0, 0.12) 0px 6px 16px;
+   padding: 20px;
+   margin-top: 15px;
+   border-radius: 15px;
+}
+
+.pricecard{
+    display: flex;
+  flex-direction: row;
 }

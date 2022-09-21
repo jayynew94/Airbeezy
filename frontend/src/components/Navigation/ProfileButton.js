@@ -37,9 +37,11 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button className="btn" onClick={create}>Become a Host</button>
+      <button className="btn" onClick={create}>
+        Become a Host
+      </button>
       <button onClick={openMenu}>
-        <i className="fa-solid fa-user">Menu</i>
+        <i className="fas fa-user-circle user_icon"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">

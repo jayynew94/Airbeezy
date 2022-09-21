@@ -145,7 +145,6 @@
                  <input
                    type="text"
                    placeholder="Name"
-
                    value={name}
                    onChange={updateName}
                  />

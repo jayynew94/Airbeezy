@@ -7,6 +7,7 @@ import './getSpots.css'
 
 
 
+
 const SpotComponent = () =>{
     const dispatch = useDispatch();
     
@@ -16,13 +17,13 @@ const SpotComponent = () =>{
     },[dispatch])
 
      const spots = useSelector((state) => Object.values(state.spots));
-     console.log(spots, "this is getallspots")
+     
      
     if(!spots){
         return null
     }
 
-    const spotlist = spots.map((spot) =>(<SpotCards spot={spot} />))
+    const spotlist = spots.map((spot) =>(<SpotCards key={spot.id} spot={spot} />))
 
     return (
         
