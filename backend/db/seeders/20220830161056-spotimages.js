@@ -7,18 +7,18 @@ module.exports = {
       [
         {
           spotId: 1,
-          url: "www.thisphoto.com",
+          url: "https://californiahome.me/wp-content/uploads/2019/03/102MorningdewPl_BackC.jpg",
           preview: true,
         },
         {
           spotId: 2,
-          url: "www.thatphoto.com",
-          preview: true
+          url: "https://i.pinimg.com/originals/9d/7e/12/9d7e126e47fae45d4727ce9bd20dd13e.jpg",
+          preview: true,
         },
         {
           spotId: 3,
-          url: "www.otherphoto.com",
-          preview: true
+          url: "https://images.squarespace-cdn.com/content/v1/5a5d0da3268b96d1e6039d0a/1533155682425-P5A4VHZCZLL2CA6W2BGP/3653-08.jpg?format=750w",
+          preview: true,
         },
       ],
       {}
