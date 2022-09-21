@@ -20,6 +20,11 @@ module.exports = {
           url: "https://images.squarespace-cdn.com/content/v1/5a5d0da3268b96d1e6039d0a/1533155682425-P5A4VHZCZLL2CA6W2BGP/3653-08.jpg?format=750w",
           preview: true,
         },
+        {
+          spotId: 4,
+          url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoumlsz4AwE4WSPhQD4awY38XAOQAQm6zr-w&usqp=CAU",
+          preview: true,
+        },
       ],
       {}
     );

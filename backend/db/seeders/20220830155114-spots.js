@@ -41,6 +41,18 @@ module.exports = {
           description: "Beautiful Mansion",
           price: 1000,
         },
+        {
+          ownerId: 1,
+          address: "269 Orange Street",
+          city: "Dallas",
+          state: "Texas",
+          country: "USA",
+          lat: 79.238243,
+          lng: 101.304983,
+          name: "Beautiful Court",
+          description: "Basketball Court",
+          price: 1000,
+        },
       ],
       {}
     );
