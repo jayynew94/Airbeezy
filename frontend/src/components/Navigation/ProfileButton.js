@@ -37,7 +37,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={create}>Create A Spot</button>
+      <button className="btn" onClick={create}>Become a Host</button>
       <button onClick={openMenu}>
         <i className="fa-solid fa-user">Menu</i>
       </button>

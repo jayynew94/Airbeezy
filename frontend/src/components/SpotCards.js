@@ -25,9 +25,11 @@ export default function SpotCards({spot}){
                   </div>
 
                   <div className="bottomcard">
-                    <p>{spot?.name}</p>
-                    <p>{spot?.description}</p>
-                    <p>{spot?.price} night</p>
+                      <span className="cardDetail">
+                    <p className="pTag2">{spot?.name}</p>
+                    <p className="pTag">{spot?.description}</p>
+                    </span>
+                    <p><span className="price">${spot?.price}</span> night</p>
                   </div>
                 </div>
               </Link>

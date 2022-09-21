@@ -1,4 +1,10 @@
 .NavBar{
     display: flex;
     justify-content: space-between;
+    border-bottom: 20px;
+}
+
+.btn{
+    margin-right: 60px;
+    margin: 20px;
 }

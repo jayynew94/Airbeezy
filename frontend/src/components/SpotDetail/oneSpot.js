@@ -5,6 +5,7 @@ import { getSpotId } from "../../store/Spots";
 import { NavLink } from "react-router-dom";
 import { deleteSpot } from "../../store/Spots";
 import { useHistory } from "react-router-dom";
+import './spotdetail.css'
 
 
 
@@ -35,6 +36,12 @@ const SpotDetail = () => {
   return (
     <div>
       <h1>Spot Detail</h1>
+      <div>
+        <img className="spotImage"
+        src={spot?.previewImage}
+        alt="spotimage"
+        />
+      </div>
       <p>{spot?.ownerId}</p>
       <p>{spot?.address}</p>
       <p>{spot?.city}</p>
@@ -46,7 +53,6 @@ const SpotDetail = () => {
       <p>{spot?.description}</p>
       <p>{spot?.price}</p>
       <p>{spot?.avgRating}</p>
-      <p>{spot?.previewImage}</p>
       {user && (
         <div>
           <button onClick={(e) => handleDelete(e)}>Delete Your Spot</button>

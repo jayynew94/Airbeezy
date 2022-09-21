@@ -26,8 +26,7 @@ const SpotComponent = () =>{
 
     return (
         
-        <div>
-            <h1>AllSpots</h1>
+        <div >
             <div className='cards'>
             {spotlist}
             </div>
