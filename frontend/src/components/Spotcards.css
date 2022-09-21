@@ -1,0 +1,36 @@
+.SpotImages{
+    width: 320px;
+    height: 300px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.spotText{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+  
+}
+
+.rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-left: 115px;
+   
+}
+.bottomcard{
+   margin-left: 20px;
+   margin-top: -30px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.detailcontainer{
+    margin-top: -20px;
+}
