@@ -163,7 +163,7 @@ router.get("/:spotId", async (req, res) => {
 
 //CREATE New Spot
 router.post("/", requireAuth, async (req, res) => {
-  const { address, city, state, country, lat, lng, name, description, price } =
+  const { address, city, state, country, lat, lng, name, description, price, url } =
     req.body;
   const userId = req.user.id;
 
@@ -179,6 +179,11 @@ router.post("/", requireAuth, async (req, res) => {
     description,
     price,
   });
+  const createImage = await SpotImage.create({
+    url,
+    spotId: createSpot.id,
+    preview: true
+  })
 
   if (!createSpot) {
     res.status(400);
