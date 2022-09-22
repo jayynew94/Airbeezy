@@ -37,26 +37,28 @@ function ProfileButton({ user }) {
 
   return (
     <div>
-      <div>
+      <div className="rightdiv">
         <button className="btn" onClick={create}>
           Become a Host
         </button>
 
-        <button className="userBtn" onClick={openMenu}>
-          <i className="fas fa-solid fa-bars"></i>
-          <i className="fas fa-user-circle user_icon"></i>
+       
+        <button className="userbtn" onClick={openMenu}>
+          <i id="left-icon" className="fas fa-solid fa-bars"></i>
+          <i id="right-icon" className="fas fa-user-circle user_icon"></i>
         </button>
+      
         {showMenu && (
           <ul className="profile-dropdown">
             <li>Hello, {user.username}</li>
             <li>User Profile: {user.email}</li>
             <li>
-              <NavLink to={`/spots/current`}>
+              <NavLink  exact to={`/spots/current`}>
                 <button>My Spots</button>
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/reviews/current`}>
+              <NavLink  exact to={`/reviews/current`}>
                 <button>My Reviews</button>
               </NavLink>
             </li>

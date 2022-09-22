@@ -13,12 +13,13 @@ import CreateSpotForm from "./components/CreateSpotForm/CreateSpot";
 import EditSpotForm from "./components/EditSpotForm/EditSpot";
 import CreateReviewForm from "./components/CreateReviewForm/CreateReview";
 import OwnerSpots from "./components/OwnerSpots/OwnerSpots";
+import GetReviews from "./components/OwnerReviews/OwnerReviews";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(getAllSpots())
+   
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
@@ -36,8 +37,11 @@ function App() {
           <Route path="/newspot">
             <CreateSpotForm />
           </Route>
-          <Route path="/spots/current">
+          <Route exact path="/spots/current">
             <OwnerSpots />
+          </Route>
+          <Route path="/reviews/current">
+          <GetReviews />
           </Route>
           <Route exact path="/spots/:spotId">
             <SpotDetail />

@@ -11,25 +11,31 @@ export default function SpotCards({spot}){
           <div>
             <div className="SpotImages" key={spot?.id}>
               <Link className="link" to={`/spots/${spot?.id}`}>
-                <img
-                  className="SpotImages"
-                  src={spot.previewImage}
-                  alt="basketball"
-                />
+                <div>
+                  <img
+                    className="SpotImages"
+                    src={spot.previewImage}
+                    alt="basketball"
+                  />
+                </div>
                 <div className="detailcontainer">
                   <div className="spotText">
-                    <p>
+                    <div>
                       {spot?.city}, {spot?.state}
-                    </p>
-                    <p className="rating">{spot?.avgRating}</p>
+                    </div>
+                    <div className="rating">{spot?.avgRating}</div>
                   </div>
 
-                  <div className="bottomcard">
-                      <span className="cardDetail">
-                    <p className="pTag2">{spot?.name}</p>
-                    <p className="pTag">{spot?.description}</p>
-                    </span>
-                    <p><span className="price">${spot?.price}</span> night</p>
+                  <div className="details">
+                    <div className="detailText">
+                      {spot?.name}
+                      </div>
+                    <div className="detailText">
+                      {spot?.description}
+                    </div>
+                    <div className="priceDet">
+                      <span className="price">${spot?.price}</span> night
+                    </div>
                   </div>
                 </div>
               </Link>

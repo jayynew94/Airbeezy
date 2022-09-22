@@ -9,9 +9,36 @@
 .btn{
     margin-right: 60px;
     margin: 20px;
-  
+    
 }
 
 .userbtn{
-    border-radius: 10px;
+    border-radius: 100px;
+  width: 75px;
+  height: 42px;
+  margin-right: 70px;
+  margin-top: 7px;
+  border-color: aliceblue;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+#left-icon{
+    color:gray;
+    margin-top: 12px;
+    margin-left: 5px;
+    height: 10px;
+}
+
+#right-icon{
+        color: darkgray;
+        margin-top: 12px;
+        margin-left: 5px;
+        
+}
+
+.rightdiv{
+    display: flex;
+    flex-direction: row;
 }

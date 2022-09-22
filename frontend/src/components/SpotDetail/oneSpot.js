@@ -7,6 +7,7 @@ import { deleteSpot } from "../../store/Spots";
 import { useHistory } from "react-router-dom";
 import "./spotdetail.css";
 import Reviews from "../ReviewComponent/Review";
+
 import { getAllReviews } from "../../store/Reviews";
 
 const SpotDetail = () => {
@@ -15,6 +16,7 @@ const SpotDetail = () => {
   const dispatch = useDispatch();
 
   const spot = useSelector((state) => state.spots[spotId]);
+  console.log(spot, "this is SPOT!!!!!!!!!!")
   const user = useSelector((state) => state.session.user);
   const review = useSelector((state) => state.reviews);
  
@@ -26,25 +28,25 @@ const SpotDetail = () => {
   };
 
   useEffect(() => {
-   
+    dispatch(getSpotId(spotId))
     dispatch(getAllReviews(spotId));
 
   }, [dispatch, spot]);
 
-  if (!spot) {
+  if (!spot || !spot.SpotImages) {
     return <h1>loading</h1>;
   }
 
 const ownerUser = (user.id === spot.ownerId)
-console.log(ownerUser, "THIS IS OWNERUSER!!!!")
-
 
   return (
     <div className="MainDiv">
       <div>
         <h1>Spot Detail</h1>
         <div>
-          <img className="spotImage" src={spot?.previewImage} alt="spotimage" />
+          {spot.SpotImages.map((image) =>(
+            <img className="spotImage" src={image.url} alt ="spot Homes"/>
+          ))}
         </div>
 
         <div className="rightDiv">

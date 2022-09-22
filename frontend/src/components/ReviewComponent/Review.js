@@ -11,7 +11,6 @@ const user = useSelector(state=> state.session.user)
           Reviews
           {Object.values(review).map((review) => (
             <div key={review.id}>
-              <div key={review.id}>{user.firstName} {user.lastName}</div>
               {review.review}
             </div>
           ))}
