@@ -30,7 +30,14 @@ export const getAllReviews = (spotId) => async dispatch => {
     }
 }
 
+export const getOwnerReviews = () => async dispatch => {
+    const response = await csrfFetch(`/api/reviews/current`)
+    if(response.ok){
+        const reviewList = await response.json()
+        dispatch(load(reviewList.Reviews))
+    }
 
+}
 
 export const reviewForm = (payload, spotId) => async(dispatch) =>{
     console.log(payload, "this is my payload")
