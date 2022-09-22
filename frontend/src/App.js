@@ -12,6 +12,7 @@ import '../src/components/Navigation/navigation.css'
 import CreateSpotForm from "./components/CreateSpotForm/CreateSpot";
 import EditSpotForm from "./components/EditSpotForm/EditSpot";
 import CreateReviewForm from "./components/CreateReviewForm/CreateReview";
+import OwnerSpots from "./components/OwnerSpots/OwnerSpots";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,16 +36,18 @@ function App() {
           <Route path="/newspot">
             <CreateSpotForm />
           </Route>
+          <Route path="/spots/current">
+            <OwnerSpots />
+          </Route>
           <Route exact path="/spots/:spotId">
             <SpotDetail />
           </Route>
           <Route path="/spots/:spotId/edit">
-          <EditSpotForm />
+            <EditSpotForm />
           </Route>
           <Route path="/spots/:spotId/reviews">
             <CreateReviewForm />
           </Route>
-
         </Switch>
       )}
     </>

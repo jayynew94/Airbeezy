@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD = 'reviews/LOAD'
 const CREATE = 'reviews/CREATE'
 
+
 const load = reviewList => {
 
     return {
@@ -22,15 +23,14 @@ const addReview = reviewList => {
 export const getAllReviews = (spotId) => async dispatch => {
     console.log(spotId,"SPOTID IN THUNK")
     const response = await fetch(`/api/spots/${spotId}/reviews`)
-
-    
-
     if(response.ok){
         const reviewList = await response.json()
        
         dispatch(load(reviewList.Reviews))
     }
 }
+
+
 
 export const reviewForm = (payload, spotId) => async(dispatch) =>{
     console.log(payload, "this is my payload")

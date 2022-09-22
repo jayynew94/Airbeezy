@@ -20,6 +20,7 @@
      const [name, setName] = useState("");
      const [price,setPrice] = useState("");
      const [state, setState] = useState("");
+     const [image, setImage] = useState("")
      const [ValidationErrors, setValidationErrors] = useState([])
      const [hasSubmitted, setHasSubmitted] = useState(false)
      
@@ -53,6 +54,7 @@
      const updateName = (e) => setName(e.target.value);
      const updatePrice = (e) => setPrice(e.target.value);
      const updateState = (e) => setState(e.target.value);
+     const updateImage = (e) => setImage(e.target.value)
 
        const handleSubmit = async (e) => {
          e.preventDefault();
@@ -70,7 +72,8 @@
             lng,
             name,
             price,
-            state
+            state,
+            url:image
          };
 
          let createdSpot = await dispatch(spotForm(payload));
@@ -153,6 +156,12 @@
                    placeholder="Price"
                    value={price}
                    onChange={updatePrice}
+                 />
+                 <input
+                  type="text"
+                  placeholder="image"
+                  value={image}
+                  onChange={updateImage}
                  />
                </form>
                <button onClick={handleSubmit}>Submit</button>

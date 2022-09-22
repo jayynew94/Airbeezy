@@ -34,6 +34,11 @@ const SpotDetail = () => {
   if (!spot) {
     return <h1>loading</h1>;
   }
+
+const ownerUser = (user.id === spot.ownerId)
+console.log(ownerUser, "THIS IS OWNERUSER!!!!")
+
+
   return (
     <div className="MainDiv">
       <div>
@@ -58,12 +63,12 @@ const SpotDetail = () => {
           </div>
 
           <div className="reviewcard">
-            <div>
-              <p>{spot?.price} night</p>
-              <p>{spot?.avgRating}</p>
+            <div className="pricediv">
+              <div>{spot?.price} night</div>
+              <div>&nbsp; {spot?.avgRating}</div>
             </div>
 
-            {user && (
+            {ownerUser && (
               <div>
                 <button onClick={(e) => handleDelete(e)}>
                   Delete Your Spot
@@ -71,13 +76,17 @@ const SpotDetail = () => {
                 <NavLink to={`/spots/${spot.id}/edit`}>
                   <button>click me to edit</button>
                 </NavLink>
-                <div>
-                  <NavLink to={`/spots/${spot.id}/reviews`}>
-                    <button>Leave a Review</button>
-                  </NavLink>
-                </div>
               </div>
             )}
+            <div>
+              {!ownerUser && (
+              <div>
+                <NavLink to={`/spots/${spot.id}/reviews`}>
+                  <button>Leave a Review</button>
+                </NavLink>
+              </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

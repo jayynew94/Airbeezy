@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import * as sessionActions from "../../store/session";
 
@@ -36,23 +36,35 @@ function ProfileButton({ user }) {
   }
 
   return (
-    <>
-      <button className="btn" onClick={create}>
-        Become a Host
-      </button>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle user_icon"></i>
-      </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
-      )}
-    </>
+    <div>
+      <div>
+        <button className="btn" onClick={create}>
+          Become a Host
+        </button>
+        
+          <button  className='userBtn'onClick={openMenu}>
+            <i className="fas fa-solid fa-bars"></i>
+            <i className="fas fa-user-circle user_icon"></i>
+          </button>
+        {showMenu && (
+          <ul className="profile-dropdown">
+            <li>Hello, {user.username}</li>
+            <li>User Profile: {user.email}</li>
+            <li>
+              <NavLink to={`/spots/current`}>
+              <button>My Spots</button>
+              </NavLink>
+            </li>
+            <li>
+              <button>My Reviews</button>
+            </li>
+            <li>
+              <button onClick={logout}>Log Out</button>
+            </li>
+          </ul>
+        )}
+      </div>
+    </div>
   );
 }
 

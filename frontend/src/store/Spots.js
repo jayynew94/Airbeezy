@@ -56,6 +56,18 @@ export const getSpotId = (spotId) => async (dispatch) => {
   }
 };
 
+export const getOwnerSpot =() => async dispatch =>{
+  const response = await csrfFetch(`/api/spots/current`);
+
+  if(response.ok){
+    const spotList = await response.json()
+    console.log(spotList.Spots, "this is the SPOTLIST")
+    dispatch(load(spotList.Spots))
+  }
+
+
+}
+
 export const spotForm = (payload) => async (dispatch) => {
   const response = await csrfFetch(`/api/spots`, {
     method: "POST",
