@@ -25,6 +25,16 @@ module.exports = {
           url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoumlsz4AwE4WSPhQD4awY38XAOQAQm6zr-w&usqp=CAU",
           preview: true,
         },
+        {
+          spotId: 5,
+          url: "https://cdn.pixabay.com/photo/2013/05/29/00/03/san-diego-114337_1280.jpg",
+          preview: true,
+        },
+        {
+          spotId: 6,
+          url: "https://cdn.pixabay.com/photo/2021/09/11/17/05/basketball-court-6616054_1280.jpg",
+          preview: true,
+        },
       ],
       {}
     );
