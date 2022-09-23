@@ -34,10 +34,10 @@ const SpotDetail = () => {
   }, [dispatch, spot]);
 
   if (!spot || !spot.SpotImages) {
-    return <h1>loading</h1>;
+    return <h1>Loading</h1>;
   }
 
-const ownerUser = (user.id === spot.ownerId)
+const ownerUser = (user && user.id === spot.ownerId)
 
   return (
     <div className="MainDiv">

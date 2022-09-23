@@ -11,6 +11,72 @@
 }
 
 .login-btn{
-    margin: 10px;
-    margin-right: 45px;
+    margin: 15px;
+    margin-left: 15px;
+    color: white;
+    background-color: rgb(227, 28, 95) ;
+    width: 350px;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+   
+   
 }
+
+.mainDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px;
+  width: 400px;
+}
+
+.loginInput{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.username{
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  padding-bottom: 15px;
+  height: 10px;
+  padding: 26px 36px 10px 12px !important;
+  min-height: 26px;
+  border-radius: 8px;
+  border-color: lightgray;
+}
+
+.password{
+display: flex;
+  flex-direction: row;
+  width: 250px;
+  padding-bottom: 15px;
+  height: 10px;
+  padding: 26px 36px 10px 12px !important;
+  min-height: 26px;
+  border-radius: 8px;
+  border-color: lightgray;
+}
+
+.loginbar{
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px;
+}
+
+.login-title{
+  padding-left: 40px;
+  border-top: 1px solid lightgray;
+
+}
+
+.divider{
+  width: 398px;
+  color: lightgray;
+  background-color: lightgrey;
+}
+

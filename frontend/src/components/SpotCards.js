@@ -23,16 +23,13 @@ export default function SpotCards({spot}){
                     <div>
                       {spot?.city}, {spot?.state}
                     </div>
-                    <div className="rating">{spot?.avgRating}</div>
+                    <i id="rating" className="fas fa-solid fa-star"> &nbsp;{spot?.avgRating}</i>
+                    {/* <div className="rating">{spot?.avgRating}</div> */}
                   </div>
 
                   <div className="details">
-                    <div className="detailText">
-                      {spot?.name}
-                      </div>
-                    <div className="detailText">
-                      {spot?.description}
-                    </div>
+                    <div className="detailText">{spot?.name}</div>
+                    <div className="detailText">{spot?.description}</div>
                     <div className="priceDet">
                       <span className="price">${spot?.price}</span> night
                     </div>

@@ -1,9 +1,11 @@
 .NavBar{
     display: flex;
+   
     justify-content: space-between;
     border-bottom: 0.5px solid;
     border-color: lightgray;
     min-width: 100%;
+
 }
 
 .btn{
@@ -24,8 +26,8 @@
 
 .userbtn{
   border-radius: 100px;
-  width: 85px;
-  height: 50px;
+  width: 95px;
+  height: 60px;
   margin-right: 70px;
   margin-left: 50px;
   margin-top: 16px;
@@ -43,14 +45,14 @@
 
 #left-icon{
     color:gray;
-    margin-top: 16px;
+    margin-top: 22px;
     margin-left: 15px;
   
 }
 
 #right-icon{
         color: #696969;
-        margin-top: 10px;
+        margin-top: 8px;
         margin-left: 10px;
       
         
@@ -63,9 +65,10 @@
 }
 
 .beezyImg{
-    margin-top: 15px;
+    margin-top: 10px;
     width: 250px;
     margin-left: 70px;
+    margin-bottom: 10px;
 }
 
 .profile-dropdown{
@@ -90,19 +93,96 @@ flex-direction: row;
 .dropDizzy{
     border: 2px solid silver;
     position: absolute;
-    top: 80px;
+    top: 90px;
     background-color: white;
     right: 20px;
     border-radius: 10px;
     display: flex;
     border-width: fit-content;
     flex-direction: column;
-    padding-right: 5px;
-    padding-left: 5px;
     padding-bottom: 10px;
+    width: 200px;
 }
 
 .droptext{
-    margin: 3px;
+    margin: 3px 0;
+    text-decoration: none;
+    width:198px;
+    padding-left: 3px;
+}
+.droptext:hover{
+    /* box-shadow: 0 2px 6px #DCDCDC; */
+    background-color: lightgray;
+}
+
+.linktext{
+    text-decoration: none;
+    color: black;
+    padding-left: 3px;
+    /* width: 250px; */
+}
+
+.stretch:hover{
+    background-color: lightgray;
+}
+
+.stretch{
+    width: 200px
+
+}
+
+.logoutbutton{
+    background: none;
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    width: 200px;
+    text-align: left;
+    padding-left: 3px;
+}
+
+.logoutbutton:hover{
+    background-color: lightgray;
+}
+.helloUser{
+    margin-top: 8px;
+}
+
+.NavRightSide{
+    display: flex;
+    flex-direction: row;
+}
+
+.loginNav{
+    position:absolute;
+    left: 1250px;
+    top: 30px;
+    
+
+}
+
+.signupNav{
+    position: absolute;
+     right: 10px;
+     top: 30px;
+    
+}
+.loginbtn{
+    color: red;
+}
+
+.signupLnk{
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+}
+
+.signupLnk:hover{
+    font-weight: bold;
+    background-color: #DCDCDC;
+   box-sizing: border-box;
+   border: none;
+    border-radius: 20px;
+   padding: 20px;
+   
 }
