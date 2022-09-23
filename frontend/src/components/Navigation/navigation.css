@@ -186,3 +186,9 @@ flex-direction: row;
    padding: 20px;
    
 }
+
+.loginsignup{
+    display: flex;
+    flex-direction: row;
+   
+}

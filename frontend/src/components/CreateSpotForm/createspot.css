@@ -1,0 +1,73 @@
+
+
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.errors{
+    display: flex;
+    justify-content: center;
+    color: rgb(227, 28, 95);
+    align-items: center;
+    
+} 
+
+.inputElement{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    
+}
+
+.inputs{
+   width: 500px;
+   min-height: 40px;
+    border-radius: 10px;
+    border-color: rgba(72, 72, 72,0.3);
+}
+.inputs:focus{
+    border-color:#222222
+}
+.createspot-input{
+    padding-bottom: 15px;
+   
+}
+
+.expandDiv{
+   
+    align-items: center;
+}
+
+.createspotbtn{
+    width: 500px;
+    height: 40px;
+    background-color: rgb(227, 28, 95);
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
+.createspoterror{
+    list-style-type: none;
+    width: 550px;
+    color: rgb(227, 28, 95) ;
+}
+
+
+.createspotdots{
+    list-style-type: none;
+    color: rgb(227, 28, 95);
+    
+}
+
+.errortext {
+  width: 550px;
+}
+
+.errorcenter{
+    display: flex;
+    justify-content: center;
+ 
+}

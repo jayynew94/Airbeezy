@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { editSpot } from "../../store/Spots";
 import { useHistory } from "react-router-dom";
+import './editspot.css'
 
 const EditSpotForm = () =>{
   const dispatch = useDispatch();
@@ -43,8 +44,6 @@ const EditSpotForm = () =>{
     if (!state) errors.push("Please Enter a State");
     if (!country) errors.push("Please Enter a Country");
     if (!description) errors.push("Please Enter a Description");
-    if (!lat) errors.push("Please Enter Latitude");
-    if (!lng) errors.push("Please Enter Longitude");
     if (!name) errors.push("Please Enter a Spot Name");
     if (name.length > 50) errors.push("Name Exceeds Character Limit");
     if (!price) errors.push("Price Per Day is Required");
@@ -82,78 +81,96 @@ const EditSpotForm = () =>{
   };
 
   return (
-    <div>
+    <div className="editmaindiv">
       {user.id === +ownerId && (
-        <div>
-          <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <div className="editcontainer">
             <h1>Edit a Spot</h1>
-            {ValidationErrors.length > 0 && (
-              <div>
-                The following errors were found:
-                <ul>
-                  {ValidationErrors.map((error) => (
-                    <li key={error}>{error}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <input
-              type="text"
-              placeholder="Address"
-              value={address}
-              onChange={updateAddress}
-            />
-            <input
-              type="text"
-              placeholder="City"
-              value={city}
-              onChange={updateCity}
-            />
-            <input
-              type="text"
-              placeholder="State"
-              value={state}
-              onChange={updateState}
-            />
-            <input
-              type="text"
-              placeholder="Country"
-              value={country}
-              onChange={updateCountry}
-            />
-            <input
-              type="text"
-              placeholder="Description"
-              value={description}
-              onChange={updateDescription}
-            />
-            <input
-              type="text"
-              placeholder="Lat"
-              value={lat}
-              onChange={updateLat}
-            />
-            <input
-              type="text"
-              placeholder="Lng"
-              value={lng}
-              onChange={updateLng}
-            />
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={updateName}
-            />
-            <input
-              type="number"
-              placeholder="Price"
-              value={price}
-              onChange={updatePrice}
-            />
-          <button type="submit">Submit</button>
-          </form>
-        </div>
+          </div>
+
+          {ValidationErrors.length > 0 && (
+            <div className="editerrors">
+              <ul className="editdots">
+                {ValidationErrors.map((error) => (
+                  <li className="editText" key={error}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div>
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="text"
+                placeholder="Address"
+                value={address}
+                onChange={updateAddress}
+              />
+            </div>
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={updateCity}
+              />
+            </div>
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="text"
+                placeholder="State"
+                value={state}
+                onChange={updateState}
+              />
+            </div>
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="text"
+                placeholder="Country"
+                value={country}
+                onChange={updateCountry}
+              />
+            </div>
+
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="text"
+                placeholder="Description"
+                value={description}
+                onChange={updateDescription}
+              />
+            </div>
+
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={updateName}
+              />
+            </div>
+            <div className="editpad">
+              <input
+                className="editinputs"
+                type="number"
+                placeholder="Price"
+                value={price}
+                onChange={updatePrice}
+              />
+            </div>
+          </div>
+          <div className="editpad">
+            <button className="edit-btn" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
       )}
     </div>
   );

@@ -16,11 +16,16 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <div className="loginNav">
-          <LoginFormModal className="loginbtn" />
-        </div>
-        <div className="signupNav">
-          <NavLink className="signupLnk" to="/signup">Sign Up</NavLink>
+        <div className="loginsignup">
+          <div>
+            <LoginFormModal />
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="signupNav">
+            <NavLink className="signupLnk" to="/signup">
+              Sign Up
+            </NavLink>
+          </div>
         </div>
       </>
     );

@@ -25,14 +25,17 @@ const SpotComponent = () =>{
     }
 
     const spotlist = spots.map((spot) => (
-      <div >
+      <div key={spot.id}>
         <SpotCards key={spot.id} spot={spot} />
       </div>
     ));
 
     return (
-      <div className='divcontainer'>
-        <div className="cards">{spotlist}</div>;
+      <div className="divcontainer">
+        <div className="cards">
+          {spotlist}
+        </div>
+        ;
       </div>
     );
 }

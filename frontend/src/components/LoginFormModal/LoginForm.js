@@ -9,18 +9,31 @@ function LoginForm() {
 
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
+  const [clickDemo, setClickDemo] = useState(false)
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
+
+   
+    let loginUser = {};
+
+    if(clickDemo === true){
+      loginUser = { credential:"Demo-lition", password:"password" };
+    }else loginUser = { credential, password };
+
+    return dispatch(sessionActions.login(loginUser)).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       }
     );
   };
+
+
+
+
 
   return (
     <div className="mainDiv">
@@ -33,42 +46,50 @@ function LoginForm() {
       </div>
 
       <form className="login-page" onSubmit={handleSubmit}>
-        <div className="errors">
+        <div className="loginerror">
           <ul>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li key={idx}>
+                {error}
+              </li>
             ))}
           </ul>
         </div>
 
         <div className="loginInput">
-          <div>
+          <div className="loginpad">
             <input
               className="username"
               type="text"
               value={credential}
               placeholder="Username or email"
               onChange={(e) => setCredential(e.target.value)}
-              required
             />
           </div>
-          <div >
+          <div className="loginpad">
             <input
               className="password"
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
           </div>
           <div>
-            <button className="login-btn" type="submit">
+            <button
+              onClick={() => setClickDemo(false)}
+              className="login-btn"
+              type="submit"
+            >
               Log In
             </button>
-            <button className="login-btn">
+            <button
+              onClick={() => setClickDemo(true)}
+              className="login-btn"
+              type="submit"
+            >
               Login as DEMO-USER
-              </button>
+            </button>
           </div>
         </div>
       </form>

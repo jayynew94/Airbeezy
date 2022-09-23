@@ -31,7 +31,7 @@ const SpotDetail = () => {
     dispatch(getSpotId(spotId))
     dispatch(getAllReviews(spotId));
 
-  }, [dispatch, spot]);
+  }, [dispatch]);
 
   if (!spot || !spot.SpotImages) {
     return <h1>Loading</h1>;
