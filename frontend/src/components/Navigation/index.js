@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
+import  LOGO2 from '../../images/LOGO2.jpeg'
 import './navigation.css'
 
 function Navigation({ isLoaded }) {
@@ -27,7 +28,10 @@ function Navigation({ isLoaded }) {
     <div className="NavBarContainer">
       <div className="NavBar">
         <NavLink exact to="/">
-          AIRBEEZY
+          <img className="beezyImg"
+            src={LOGO2}
+            alt="logo"
+          />
         </NavLink>
         <div className="NavRightSide">{isLoaded && sessionLinks}</div>
       </div>

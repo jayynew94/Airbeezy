@@ -7,38 +7,102 @@
 }
 
 .btn{
-    margin-right: 60px;
-    margin: 20px;
-    
+   
+  border-radius: 30px;
+  font-size: 20px;
+  height: 35px;
+  margin-top: 7px;
+  background-color: white;
+  border: none;
+  border-color: none;
+  
+  cursor: pointer;  
+}
+.btn:hover{
+    background-color: #DCDCDC;
 }
 
 .userbtn{
-    border-radius: 100px;
-  width: 75px;
-  height: 42px;
+  border-radius: 100px;
+  width: 85px;
+  height: 50px;
   margin-right: 70px;
-  margin-top: 7px;
-  border-color: aliceblue;
+  margin-left: 50px;
+  margin-top: 16px;
+  border-color: lightgray;
   background-color: white;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
+  border-width: thin;
+}
+
+.userbtn:hover{
+    box-shadow: 0 1px 8px 0 gray, 0 1px 8px 0 gray
 }
 
 #left-icon{
     color:gray;
-    margin-top: 12px;
-    margin-left: 5px;
-    height: 10px;
+    margin-top: 16px;
+    margin-left: 15px;
+  
 }
 
 #right-icon{
-        color: darkgray;
-        margin-top: 12px;
-        margin-left: 5px;
+        color: #696969;
+        margin-top: 10px;
+        margin-left: 10px;
+      
         
 }
 
 .rightdiv{
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.beezyImg{
+    margin-top: 15px;
+    width: 250px;
+    margin-left: 70px;
+}
+
+.profile-dropdown{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-indent: 50px;
+}
+.dropdiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.DONTMOVE{
+display: flex;
+position: absolute;
+right: 250px;
+top: 30px;
+flex-direction: row;
+}
+
+.dropDizzy{
+    border: 2px solid silver;
+    position: absolute;
+    top: 80px;
+    background-color: white;
+    right: 20px;
+    border-radius: 10px;
+    display: flex;
+    border-width: fit-content;
+    flex-direction: column;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+.droptext{
+    margin: 3px;
+    cursor: pointer;
 }

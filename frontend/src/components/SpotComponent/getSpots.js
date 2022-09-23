@@ -8,6 +8,7 @@ import './getSpots.css'
 
 
 
+
 const SpotComponent = () =>{
     const dispatch = useDispatch();
     
@@ -29,7 +30,11 @@ const SpotComponent = () =>{
       </div>
     ));
 
-    return <div className="cards">{spotlist}</div>;
+    return (
+      <div className='divcontainer'>
+        <div className="cards">{spotlist}</div>;
+      </div>
+    );
 }
 
 export default SpotComponent
