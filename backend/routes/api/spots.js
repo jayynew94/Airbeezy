@@ -138,7 +138,7 @@ router.get("/:spotId", async (req, res) => {
       ownerId: req.user.id,
     },
   });
-
+    console.log("======================", oneSpot)
   if (!oneSpot) {
     return res.json({
       message: "Spot couldn't be found",
@@ -163,7 +163,7 @@ router.get("/:spotId", async (req, res) => {
 
 //CREATE New Spot
 router.post("/", requireAuth, async (req, res) => {
-  const { address, city, state, country, lat, lng, name, description, price, url } =
+  const { address, city, state, country, lat, lng, name, description, price, } =
     req.body;
   const userId = req.user.id;
 
@@ -179,11 +179,7 @@ router.post("/", requireAuth, async (req, res) => {
     description,
     price,
   });
-  const createImage = await SpotImage.create({
-    url,
-    spotId: createSpot.id,
-    preview: true
-  })
+
 
   if (!createSpot) {
     res.status(400);
