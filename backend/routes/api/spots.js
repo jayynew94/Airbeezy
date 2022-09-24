@@ -173,8 +173,6 @@ router.post("/", requireAuth, async (req, res) => {
     city,
     state,
     country,
-    lat,
-    lng,
     name,
     description,
     price,
