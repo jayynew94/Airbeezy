@@ -61,8 +61,6 @@ const CreateSpotForm = () => {
       city,
       country,
       description,
-      lat,
-      lng,
       name,
       price,
       state,
