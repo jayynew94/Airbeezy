@@ -96,8 +96,6 @@ export const spotForm = (payload) => async (dispatch) => {
       city,
       country,
       description,
-      lat,
-      lng,
       name,
       price,
       state,
