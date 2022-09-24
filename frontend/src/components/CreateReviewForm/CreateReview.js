@@ -48,7 +48,8 @@ const CreateReviewForm = () => {
 
         const payload ={
             stars,
-            review
+            review,
+            
         }
 
      await dispatch(reviewForm(payload, spotId))

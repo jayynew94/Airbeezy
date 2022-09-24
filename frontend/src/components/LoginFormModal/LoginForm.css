@@ -83,7 +83,7 @@ display: flex;
 .loginerror{
   color: rgb(227, 28, 95);
   list-style-type: none;
-  text-decoration: none;
+  
 }
 
 .loginLnk {

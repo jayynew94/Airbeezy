@@ -23,7 +23,8 @@ const remove = reviewId => {
 const addReview = reviewList => {
     return {
         type: CREATE,
-        reviewList
+        reviewList,
+      
     }
 }
 
@@ -46,20 +47,21 @@ export const getOwnerReviews = () => async dispatch => {
 
 }
 
-export const reviewForm = (payload, spotId) => async(dispatch) =>{
+export const reviewForm = (payload, spotId, userObj) => async(dispatch) =>{
     console.log(payload, "this is my payload")
- 
+    console.log(userObj,"this is the USR OBJ")
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
-       
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+        
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload, userObj),
     });
-     console.log(spotId, "THIS IS THE SPOT ID!!!!");
-    console.log(response, "this is reviewform response")
+   
     if(response.ok) {
         const newReview = await response.json()
-        dispatch(addReview(newReview))
+        newReview.User = userObj;
+        console.log(newReview.User,"this is review user")
+        dispatch(reviewForm(payload, spotId, userObj))
         return newReview
     }
 }

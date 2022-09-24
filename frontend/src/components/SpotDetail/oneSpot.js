@@ -41,17 +41,24 @@ const ownerUser = (user && user.id === spot.ownerId)
 
 
   return (
-    <div className="MainDiv">
+    <div key={spot}className="MainDiv">
       <div>
         <h1>{spot?.name}</h1>
-        <h4 className="fas fa-solid fa-star"> &nbsp;
-         {spot?.avgRating} &nbsp;<span className="space">·</span> {spot?.city},{" "}
+        <h4 className="fas fa-solid fa-star">
+          {" "}
+          &nbsp;
+          {spot?.avgRating} &nbsp;<span className="space">·</span> {spot?.city},{" "}
           {spot?.state}, {spot?.country}
         </h4>
+
         <div>
-          {spot.SpotImages.map((image) => (
+          {spot.SpotImages.map((image) => {
+            return (
+              <div key={image.id}>
             <img className="spotImage" src={image.url} alt="spot Homes" />
-          ))}
+            </div>
+            )
+            })}
         </div>
 
         <div className="rightDiv">
@@ -77,8 +84,8 @@ const ownerUser = (user && user.id === spot.ownerId)
             </div>
 
             {ownerUser && (
-              <div className="twoBtn">
-                <button className="deleteBtn"onClick={(e) => handleDelete(e)}>
+              <div key={spot} className="twoBtn">
+                <button className="deleteBtn" onClick={(e) => handleDelete(e)}>
                   Delete Your Spot
                 </button>
                 &nbsp;
@@ -91,22 +98,23 @@ const ownerUser = (user && user.id === spot.ownerId)
             <div className="priceText">Cleaning Fee: $100</div>
             <div>
               {!ownerUser && (
-                <div>
+                <div key={spot}>
                   <NavLink to={`/spots/${spot.id}/reviews`}>
                     <button className="review-btn">Leave a Review</button>
                   </NavLink>
                 </div>
               )}
-              <div className="total-text">Total:$450.36</div>
+              <div className="total-text">
+                Total:$450.36
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
-        <div className="reviewSpace">
-          <Reviews key={review} review={review} />
-        </div>
-      
+
+      <div className="reviewSpace">
+        <Reviews key={review} review={review} />
+      </div>
     </div>
   );
 
