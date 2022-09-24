@@ -1,5 +1,5 @@
 .spotImage{
-    width: 600px;
+    width: 1000px;
     height: 600px;
     border-radius: 15px;
     display: flex;
@@ -24,6 +24,8 @@
    padding: 20px;
    margin-top: 15px;
    border-radius: 15px;
+    width: 200px;
+    
 }
 
 .pricediv{
@@ -32,3 +34,85 @@
   justify-content: space-between;
 }
 
+.space{
+    font-size: large;
+}
+
+.textBlock{
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+}
+
+.para{
+    width: 715px;
+    border-bottom: 1px solid lightgray;
+    padding: 20px;
+
+}
+
+.hosteddiv{
+  font-size: 25px;
+  padding-top: 20px;
+  color: #000000Bf;
+  margin-left: 20px;
+}
+.descriptiondiv{
+    font-size: 16px;
+    color: #000000Bf;
+    border-bottom:  1px solid lightgray;
+    padding-bottom: 15px;
+    margin-left: 20px;
+   
+}
+.cancellation{
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.twoBtn{
+    display: flex;
+    flex-direction: row;
+}
+
+.deleteBtn{
+     
+           
+            color: white;
+            background-color: rgb(227, 28, 95);
+            cursor: pointer;
+            border: none;
+            height: 40px;
+            border-radius: 8px;
+}
+
+.editsbtn{
+        color: white;
+            background-color: rgb(227, 28, 95);
+            cursor: pointer;
+            border: none;
+            height: 40px;
+            border-radius: 8px;
+}
+.priceText{
+    margin: 5px;
+}
+
+.total-text{
+    margin-top: 40px;
+    border-top: 1px solid lightgray;
+    padding-top: 3px;
+}
+.review-btn{
+        color: white;
+            background-color: rgb(227, 28, 95);
+            width: 195px;
+            border: none;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+}
+
+.reviewSpace{
+    width: 980px;
+}

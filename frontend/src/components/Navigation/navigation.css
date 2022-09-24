@@ -189,6 +189,6 @@ flex-direction: row;
 
 .loginsignup{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
    
 }

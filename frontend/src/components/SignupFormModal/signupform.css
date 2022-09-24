@@ -1,0 +1,80 @@
+.SignDiv{
+display: flex;
+    flex-direction: column;
+    justify-content: left;
+    min-height: 400px;
+    width: 600px;
+}
+
+.signupPage{
+    background-color: white;
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        align-items: right;
+        flex-direction: column;
+}
+
+.signupbar{
+    padding-left: 40px;
+    width: 500px;
+        border-bottom: 1px solid lightgray;
+        display: flex;
+        justify-content: center;
+        margin-right: 40px;
+}
+
+.signuperror{
+    color: rgb(227, 28, 95);
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+}
+
+.SignupInput{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.signupPad{
+    padding-bottom: 15px;
+}
+.signupBlocks{
+    display: flex;
+        flex-direction: row;
+        width: 450px;
+        padding-bottom: 15px;
+        height: 10px;
+        padding: 26px 36px 10px 12px;
+        min-height: 26px;
+        border-radius: 8px;
+        border-color: lightgray;
+}
+
+.bigsignupbtn{
+    margin: 15px;
+        margin-left: 2px;
+        color: white;
+        background-color: rgb(227, 28, 95);
+        width: 500px;
+        border: none;
+        height: 40px;
+        border-radius: 8px;
+}
+
+.signupTitle{
+    margin-right: 60px;
+}
+
+.Eblock{
+        display: flex;
+            align-items: baseline;
+            align-content: flex-start;
+            flex-direction: column;
+            width: 500px;
+}

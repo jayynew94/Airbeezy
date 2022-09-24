@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { reviewForm } from "../../store/Reviews";
-import  SpotDetail from '../SpotDetail/oneSpot'
+import './createReview.css'
+
 
 const CreateReviewForm = () => {
     const user = useSelector(state => state.session.user)
@@ -15,11 +16,10 @@ const CreateReviewForm = () => {
   
 
 
-    const [ownerId, setOwnerId] = useState(null)
     const [stars, setStars] = useState("")
     const [review, setReview] = useState("")
     const [ValidationErrors, setValidationErrors] = useState([])
-    const [errors, setErrors] = useState([]);
+
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
 
@@ -34,7 +34,7 @@ const CreateReviewForm = () => {
 
         setValidationErrors(errors)
         // if(user)setOwnerId(user?.id)
-    }, [user, stars, review])
+    }, [user, stars, review, reviews.userId])
 
 
     const updateStars = (e) => setStars(e.target.value)
@@ -58,7 +58,6 @@ const CreateReviewForm = () => {
         .catch(async(res) => {
             const data =  await res.json()
             if(data && data.message){
-                console.log(data.message,"THIS IS ERROR")
                 setValidationErrors([data.message])
             }
         })
@@ -68,37 +67,46 @@ const CreateReviewForm = () => {
     }
 
     return (
-      <div>
+      <div className="reviewspan">
         {!user && <h1>Please Sign In</h1>}
         {user && (
-          <div>
-            <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
+            <div className="review-title">
               <h1>Create a Review</h1>
-              {ValidationErrors.length > 0 && (
-                <div>
-                  The following errors were found:
-                  <ul>
-                    {ValidationErrors.map((error) => (
-                      <li key={error}>{error}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              <input
-                type="number"
-                placeholder="Stars"
-                value={stars}
-                onChange={updateStars}
-              />
-              <input
-                type="text"
-                placeholder="Leave a Review"
-                value={review}
-                onChange={updateReview}
-              />
-            <button onClick={handleSubmit}>Submit</button>
-            </form>
-          </div>
+            </div>
+            {ValidationErrors.length > 0 && (
+              <div className="reviewCenter">
+                <ul className="createReviewdots">
+                  {ValidationErrors.map((error) => (
+                    <li className="rev-errors" key={error}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <div className="reviewElement">
+              <div className="Review-inputs">
+                <input
+                  className="stars-field"
+                  type="number"
+                  placeholder="Stars"
+                  value={stars}
+                  onChange={updateStars}
+                />
+              </div>
+              <div>
+                <input
+                  className="review-field"
+                  type="text"
+                  placeholder="Leave a Review"
+                  value={review}
+                  onChange={updateReview}
+                />
+              </div>
+            </div>
+            <div className="createreviewInput">
+              <button  className="createRev-btn"onClick={handleSubmit}>Submit</button>
+            </div>
+          </form>
         )}
       </div>
     );

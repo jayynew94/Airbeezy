@@ -1,0 +1,68 @@
+.reviewspan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-title{
+    display: flex;
+    justify-content: center;
+}
+
+.reviewElement{
+display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+}
+
+.Review-inputs{
+padding-bottom: 15px;
+}
+
+.stars-field{
+width: 500px;
+    min-height: 40px;
+    border-radius: 10px;
+    border-color: rgba(72, 72, 72, 0.3);
+}
+
+.review-field{
+width: 500px;
+    min-height: 40px;
+    height: 120px;
+    border-radius: 10px;
+    border-color: rgba(72, 72, 72, 0.3);
+}
+
+
+.createRev-btn{
+width: 500px;
+    height: 40px;
+    background-color: rgb(227, 28, 95);
+    border: none;
+    color: white;
+    border-radius: 8px;
+   
+}
+
+.reviewCenter{
+display: flex;
+    justify-content: center;
+    margin-left: 280px;
+}
+
+.createReviewdots{
+list-style-type: none;
+    color: rgb(227, 28, 95);
+}
+
+.rev-errors{
+width: 550px;
+}
+
+.createreviewInput{
+padding-bottom: 15px;
+display: flex;
+    justify-content: space-around;
+}
