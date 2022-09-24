@@ -56,7 +56,7 @@ const ownerUser = (user && user.id === spot.ownerId)
 
         <div className="rightDiv">
           <div className="textBlock">
-            <div className="hosteddiv"> HOSTED BY: {spot?.Owner.firstName}</div>
+            <div className="hosteddiv"> HOSTED BY: </div>
             <div className="descriptiondiv">
               Description: {spot?.description}
             </div>
