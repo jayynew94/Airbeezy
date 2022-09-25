@@ -11,7 +11,7 @@ export default function Reviews({review}){
       <div>
         {review.stars}
         <div>
-          <h2>REVIEWS</h2>
+          <h2 className='Bottom-page'>REVIEWS</h2>
           {Object.values(review).map((review) => (
             <div className="starBlock" key={review.id}>
               <div className="nameDiv">Review By: {review.User?.firstName}</div>

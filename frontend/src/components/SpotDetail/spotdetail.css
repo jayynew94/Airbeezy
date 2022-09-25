@@ -48,7 +48,7 @@
 .para{
     width: 720px;
     padding: 20px;
-    border-bottom: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
     font-weight: lighter;
 }
 
@@ -119,8 +119,20 @@
 
 .reviewSpace{
     width: 980px;
+    margin-top: -15px;
 }
 
 .BigPrice{
     font-weight: bold;
+}
+.Bottom-page{
+    margin-left: 20px;
+}
+
+.borderbox{
+   min-width: 900px;
+   background-color: lightgray;
+}
+.parapadding{
+    padding-bottom: 20px;
 }

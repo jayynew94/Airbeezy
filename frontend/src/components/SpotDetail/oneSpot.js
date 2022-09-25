@@ -63,23 +63,25 @@ const ownerUser = (user && user.id === spot.ownerId)
 
         <div className="rightDiv">
           <div className="textBlock">
-            <div className="hosteddiv"> HOSTED BY:{spot?.Owner.firstName} </div>
+            <div className="hosteddiv"> HOSTED BY: {spot?.Owner.firstName} </div>
             <div className="descriptiondiv">
               Description: {spot?.description}
             </div>
 
             <div className="cancellation">FREE CANCELLATION FOR 48 HOURS</div>
             <div className="para">
-              Every booking includes free protection from Host cancellationos,
-              listing inaccuracies, and other issues like trouble checking in.
+              <div className="parapadding">
+                Every booking includes free protection from Host cancellations,
+                listing inaccuracies, and other issues like trouble checking in.
+              </div>
+              <hr className="borderBox"></hr>
             </div>
-            <div>{review?.stars}</div>
           </div>
 
           <div className="reviewcard">
             <div className="pricediv">
               <div>
-                <span className="BigPrice">${spot?.price}</span>  night
+                <span className="BigPrice">${spot?.price}</span> night
               </div>
               <div className="fas fa-solid fa-star">
                 &nbsp; {spot?.avgRating}

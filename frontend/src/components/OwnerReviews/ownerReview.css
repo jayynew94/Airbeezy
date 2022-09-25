@@ -1,0 +1,33 @@
+.yourReview{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.reviewGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+#Starpower{
+    padding-bottom: 30px;
+    margin-top: 20px;
+  /* display: flex;
+    justify-content: flex-end; */
+}
+.reviewPage{
+    margin-bottom: 5px;
+    font-weight: lighter;
+}
+
+.deleteReview{
+    width: 140px;
+        height: 40px;
+        background-color: rgb(227, 28, 95);
+        border: none;
+        color: white;
+        border-radius: 8px;
+        margin-bottom: 20px;
+}
+
