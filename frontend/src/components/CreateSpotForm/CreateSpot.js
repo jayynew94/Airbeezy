@@ -148,7 +148,7 @@ const CreateSpotForm = () => {
           <div className="createspot-input">
             <input
               className="inputs"
-              type="number"
+              type="text"
               placeholder="Price"
               value={price}
               onChange={updatePrice}

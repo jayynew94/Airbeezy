@@ -171,7 +171,7 @@ useEffect(() => {
             <div className="editpad">
               <input
                 className="editinputs"
-                type="number"
+                type="text"
                 placeholder="Price"
                 value={price}
                 onChange={updatePrice}

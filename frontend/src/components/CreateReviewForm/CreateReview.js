@@ -88,7 +88,7 @@ const CreateReviewForm = () => {
               <div className="Review-inputs">
                 <input
                   className="stars-field"
-                  type="number"
+                  type="text"
                   placeholder="Stars"
                   value={stars}
                   onChange={updateStars}

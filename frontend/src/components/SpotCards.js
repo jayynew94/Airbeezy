@@ -9,6 +9,7 @@ export default function SpotCards({spot}){
       <>
         {spot && (
           <div>
+            <div>
             <div className="SpotImages" key={spot?.id}>
               <Link className="link" to={`/spots/${spot?.id}`}>
                 <div>
@@ -36,6 +37,7 @@ export default function SpotCards({spot}){
                   </div>
                 </div>
               </Link>
+            </div>
             </div>
           </div>
         )}

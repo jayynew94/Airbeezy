@@ -32,7 +32,7 @@
 }
 #rating{
     font-size: 16px;
-   
+   margin-right: 12px;
 }
 .bottomcard{
    margin-left: 20px;
@@ -44,7 +44,10 @@
    flex-direction: column;
     text-decoration: none;
     color: black;
+
 }
+
+
 
 .detailcontainer{
     margin-top: -10px;
@@ -52,6 +55,7 @@
     font-size: 14px;
   
 }
+
 
 .price{
     margin-top:10px;
