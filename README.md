@@ -23,6 +23,7 @@ Please see all links below for Github Wiki:
 
 
 
+
  # This Project was built with:
 - JavaScript
 - POSTgres
@@ -32,7 +33,11 @@ Please see all links below for Github Wiki:
 - Redux
 
 # Features
-Photo of home page will go here 
+
+<img width="1440" alt="Screen Shot 2022-09-25 at 12 59 01 PM" src="https://user-images.githubusercontent.com/93681678/192158168-50b30bf7-22ec-4bd3-a285-dcbcf79be1c8.png">
 
 
+<img width="1440" alt="Screen Shot 2022-09-25 at 1 00 31 PM" src="https://user-images.githubusercontent.com/93681678/192158234-e0277c48-1342-4b06-bdaa-9ae1b6d014a1.png">
+
+<img width="1440" alt="Screen Shot 2022-09-25 at 1 02 09 PM" src="https://user-images.githubusercontent.com/93681678/192158278-8774e4c1-aeba-47cb-85c6-f84d5de74784.png">
 
