@@ -33,8 +33,6 @@ const CreateSpotForm = () => {
     if (name.length > 26) errors.push("Name Exceeds Character Limit");
     if (!price) errors.push("Price Per Day is Required");
     if(isNaN(price))errors.push("Price should be a number")
-    
-
     if (!image.endsWith(".jpg") && !image.endsWith(".png") && !image.endsWith(".jpeg"))
       errors.push("Please provide a valid image");
    
