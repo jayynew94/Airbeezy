@@ -14,9 +14,15 @@
 }
 .nameDiv{
   margin-left: 26px;
+  padding-bottom:10px;
 }
 
 #StarId{
     margin-left: 26px;
     margin-top: 20px;
+}
+
+#Aug{
+margin-bottom: 10px;
+    color: darkgray;
 }

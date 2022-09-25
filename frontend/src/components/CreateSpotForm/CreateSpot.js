@@ -14,8 +14,6 @@ const CreateSpotForm = () => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [description, setDescription] = useState("");
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [state, setState] = useState("");
@@ -32,13 +30,16 @@ const CreateSpotForm = () => {
     if (!country) errors.push("Please Enter a Country");
     if (!description) errors.push("Please Enter a Description");
     if (!name) errors.push("Please Enter a Spot Name");
-    if (name.length > 50) errors.push("Name Exceeds Character Limit");
+    if (name.length > 26) errors.push("Name Exceeds Character Limit");
     if (!price) errors.push("Price Per Day is Required");
+    if(isNaN(price))errors.push("Price should be a number")
+    
 
+    if(!image.endsWith(".jpg"))errors.push("Please provide a valid image")
     setValidationErrors(errors);
 
     if (user) setOwnerId(user?.id);
-  }, [user, address, city, country, description, lat, lng, name, price, state]);
+  }, [user, address, city, country, description,  name, price, state]);
 
   const updateAddress = (e) => setAdress(e.target.value);
   const updateCity = (e) => setCity(e.target.value);
@@ -97,6 +98,7 @@ const CreateSpotForm = () => {
               type="text"
               placeholder="Address"
               value={address}
+              min={5}
               onChange={updateAddress}
             />
           </div>

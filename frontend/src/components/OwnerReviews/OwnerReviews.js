@@ -29,7 +29,7 @@ export default function GetReviews() {
               <div className="reviewPage">
                 Review By: {review.User?.firstName}
               </div>
-              <div className="reviewPage">Aug 2022</div>
+              <div id="OwnerAug"className="reviewPage">Aug 2022</div>
               <div className="reviewReview">{review.review}</div>
               <div id="Starpower" className="fas fa-solid fa-star">{review.stars}
               </div>

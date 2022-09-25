@@ -4,9 +4,10 @@ import './review.css'
 
 export default function Reviews({review}){
     
+  if(review.stars === 0){
+    review.stars = "No Reviews Yet"
+  }
 
- 
-    
     return (
       <div>
         {review.stars}
@@ -15,7 +16,7 @@ export default function Reviews({review}){
           {Object.values(review).map((review) => (
             <div className="starBlock" key={review.id}>
               <div className="nameDiv">Review By: {review.User?.firstName}</div>
-              <div className="nameDiv">Aug 2022</div>
+              <div id="Aug"className="nameDiv">Aug 2022</div>
               <div className="nameDiv">{review.review}</div>
               <div>{console.log(review)}</div>
               <div id="StarId" className="fas fa-solid fa-star">
