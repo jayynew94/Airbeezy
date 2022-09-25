@@ -34,7 +34,7 @@ const SpotDetail = () => {
   }, [dispatch, spotId]);
 
   if (!spot || !spot.SpotImages) {
-    return <h1>Loading</h1>;
+    return <h1>Please Sign in</h1>;
   }
 
 const ownerUser = (user && user.id === spot.ownerId)
