@@ -35,6 +35,21 @@ module.exports = {
           url: "https://cdn.pixabay.com/photo/2021/09/11/17/05/basketball-court-6616054_1280.jpg",
           preview: true,
         },
+        {
+          spotId: 7,
+          url: "https://cdn.pixabay.com/photo/2020/07/13/01/38/goal-5399126_1280.jpg",
+          preview: true,
+        },
+        {
+          spotId: 8,
+          url: "https://cdn.pixabay.com/photo/2019/04/26/19/44/basketball-court-4158462_1280.jpg",
+          preview: true,
+        },
+        {
+          spotId: 9,
+          url: "https://cdn.pixabay.com/photo/2016/09/20/18/37/venice-beach-1683097_1280.jpg",
+          preview: true,
+        },
       ],
       {}
     );

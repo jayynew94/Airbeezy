@@ -138,7 +138,7 @@ router.get("/:spotId", async (req, res) => {
       ownerId: req.user.id,
     },
   });
-    console.log("======================", oneSpot)
+    console.log("======================", )
   if (!oneSpot) {
     return res.json({
       message: "Spot couldn't be found",
