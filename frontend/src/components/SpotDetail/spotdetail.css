@@ -32,6 +32,7 @@
     display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 35px;
 }
 
 .space{
@@ -45,10 +46,10 @@
 }
 
 .para{
-    width: 715px;
-    border-bottom: 1px solid lightgray;
+    width: 720px;
     padding: 20px;
-
+    border-bottom: 1px solid lightgray;
+    font-weight: lighter;
 }
 
 .hosteddiv{
@@ -63,11 +64,14 @@
     border-bottom:  1px solid lightgray;
     padding-bottom: 15px;
     margin-left: 20px;
-   
+   margin-top: 5px;
 }
 .cancellation{
-    padding: 20px;
+    margin-left: 17px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     border-bottom: 1px solid lightgray;
+    width: 700px;
 }
 
 .twoBtn{
@@ -115,4 +119,8 @@
 
 .reviewSpace{
     width: 980px;
+}
+
+.BigPrice{
+    font-weight: bold;
 }

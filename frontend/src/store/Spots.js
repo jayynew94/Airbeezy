@@ -58,7 +58,7 @@ export const getSpotId = (spotId) => async (dispatch) => {
 
   if (response.ok) {
     const spot = await response.json();
-   
+ 
     dispatch(loadOne(spot));
   }
 };
@@ -80,8 +80,6 @@ export const spotForm = (payload) => async (dispatch) => {
     city,
     country,
     description,
-    lat,
-    lng,
     name,
     price,
     state,
@@ -131,6 +129,7 @@ export const editSpot = (payload) => async (dispatch) => {
   if (response.ok) {
     const updatedSpot = await response.json();
     dispatch(updateSpot(updatedSpot));
+    // dispatch(addSpot(updatedSpot));
     return updatedSpot;
   }
 };
@@ -192,6 +191,7 @@ const spotReducer = (state = initialState, action) => {
       const newState = { ...state };
 
       newState[action.spot.id] = action.spot;
+    
       return newState;
     }
 

@@ -19,7 +19,7 @@ const SpotDetail = () => {
 
   const user = useSelector((state) => state.session.user);
   const review = useSelector((state) => state.reviews);
- 
+ console.log()
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const ownerUser = (user && user.id === spot.ownerId)
 
 
   return (
-    <div key={spot}className="MainDiv">
+    <div key={spot} className="MainDiv">
       <div>
         <h1>{spot?.name}</h1>
         <h4 className="fas fa-solid fa-star">
@@ -55,15 +55,15 @@ const ownerUser = (user && user.id === spot.ownerId)
           {spot.SpotImages.map((image) => {
             return (
               <div key={image.id}>
-            <img className="spotImage" src={image.url} alt="spot Homes" />
-            </div>
-            )
-            })}
+                <img className="spotImage" src={image.url} alt="spot Homes" />
+              </div>
+            );
+          })}
         </div>
 
         <div className="rightDiv">
           <div className="textBlock">
-            <div className="hosteddiv"> HOSTED BY: </div>
+            <div className="hosteddiv"> HOSTED BY:{spot?.Owner.firstName} </div>
             <div className="descriptiondiv">
               Description: {spot?.description}
             </div>
@@ -73,11 +73,14 @@ const ownerUser = (user && user.id === spot.ownerId)
               Every booking includes free protection from Host cancellationos,
               listing inaccuracies, and other issues like trouble checking in.
             </div>
+            <div>{review?.stars}</div>
           </div>
 
           <div className="reviewcard">
             <div className="pricediv">
-              <div>${spot?.price} night</div>
+              <div>
+                <span className="BigPrice">${spot?.price}</span>  night
+              </div>
               <div className="fas fa-solid fa-star">
                 &nbsp; {spot?.avgRating}
               </div>
@@ -104,9 +107,7 @@ const ownerUser = (user && user.id === spot.ownerId)
                   </NavLink>
                 </div>
               )}
-              <div className="total-text">
-                Total:$450.36
-              </div>
+              <div className="total-text">Total:$450.36</div>
             </div>
           </div>
         </div>
