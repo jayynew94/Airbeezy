@@ -19,7 +19,7 @@ const SpotDetail = () => {
 
   const user = useSelector((state) => state.session.user);
   const review = useSelector((state) => state.reviews);
- console.log()
+
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ const ownerUser = (user && user.id === spot.ownerId)
 
         <div className="rightDiv">
           <div className="textBlock">
-            <div className="hosteddiv"> HOSTED BY: {spot?.Owner.firstName} </div>
+            <div className="hosteddiv"> HOSTED BY: {spot.Owner?.firstName} </div>
             <div className="descriptiondiv">
               Description: {spot?.description}
             </div>
