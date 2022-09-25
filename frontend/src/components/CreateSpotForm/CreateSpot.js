@@ -35,7 +35,10 @@ const CreateSpotForm = () => {
     if(isNaN(price))errors.push("Price should be a number")
     
 
-    if(!image.endsWith(".jpg"))errors.push("Please provide a valid image")
+    if (!image.endsWith(".jpg") && !image.endsWith(".png") && !image.endsWith(".jpeg"))
+      errors.push("Please provide a valid image");
+   
+    
     setValidationErrors(errors);
 
     if (user) setOwnerId(user?.id);
