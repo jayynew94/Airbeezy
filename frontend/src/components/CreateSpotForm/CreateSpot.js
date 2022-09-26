@@ -23,6 +23,7 @@ const CreateSpotForm = () => {
 
   useEffect(() => {
     const errors = [];
+  
     if (!user) errors.push("Please Log In");
     if (!address) errors.push("Please Enter an Address");
     if (!city) errors.push("Please Enter a City");
@@ -33,14 +34,18 @@ const CreateSpotForm = () => {
     if (name.length > 26) errors.push("Name Exceeds Character Limit");
     if (!price) errors.push("Price Per Day is Required");
     if(isNaN(price))errors.push("Price should be a number")
-    if (!image.endsWith(".jpg") && !image.endsWith(".png") && !image.endsWith(".jpeg"))
-      errors.push("Please provide a valid image");
-   
-    
+       if (
+         !image.endsWith(".jpg") &&
+         !image.endsWith(".png") &&
+         !image.endsWith(".jpeg")
+       ) {
+         errors.push("Please provide a valid image");
+       }
+        
     setValidationErrors(errors);
 
     if (user) setOwnerId(user?.id);
-  }, [user, address, city, country, description,  name, price, state]);
+  }, [user, address, city, country, description,  name, price, state, image]);
 
   const updateAddress = (e) => setAdress(e.target.value);
   const updateCity = (e) => setCity(e.target.value);
