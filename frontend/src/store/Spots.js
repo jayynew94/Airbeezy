@@ -42,18 +42,17 @@ const loadOne = (spot) => {
 };
 
 export const getAllSpots = () => async (dispatch) => {
-  // console.log("before fetch")
+  
   const response = await fetch(`/api/spots`);
 
   if (response.ok) {
     const spotlist = await response.json();
-    //  console.log(spotlist.Spots, "this is spotlist ")
     dispatch(load(spotlist.Spots));
   }
 };
 
 export const getSpotId = (spotId) => async (dispatch) => {
-  console.log(spotId, "this is the spot id");
+ 
   const response = await fetch(`/api/spots/${spotId}`);
 
   if (response.ok) {
@@ -68,7 +67,7 @@ export const getOwnerSpot = () => async (dispatch) => {
 
   if (response.ok) {
     const spotList = await response.json();
-    console.log(spotList.Spots, "this is the SPOTLIST");
+   
     dispatch(load(spotList.Spots));
   }
 };
@@ -146,7 +145,7 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 };
 
 const initialState = {};
-// console.log(initialState,"this is the initial state")
+
 
 const spotReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -160,7 +159,7 @@ const spotReducer = (state = initialState, action) => {
 
     case CREATE:
       const newState = { ...state };
-      console.log(action.spotlist.id);
+     
       newState[action.spotlist.id] = action.spotlist;
       return newState;
     case UPDATE:

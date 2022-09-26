@@ -18,7 +18,7 @@ export default function Reviews({review}){
               <div className="nameDiv">Review By: {review.User?.firstName}</div>
               <div id="Aug"className="nameDiv">Aug 2022</div>
               <div className="nameDiv">{review.review}</div>
-              <div>{console.log(review)}</div>
+             
               <div id="StarId" className="fas fa-solid fa-star">
                 {review.stars}
               </div>

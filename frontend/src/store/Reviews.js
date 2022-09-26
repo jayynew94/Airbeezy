@@ -29,7 +29,7 @@ const addReview = reviewList => {
 }
 
 export const getAllReviews = (spotId) => async dispatch => {
-    console.log(spotId,"SPOTID IN THUNK")
+
     const response = await fetch(`/api/spots/${spotId}/reviews`)
     if(response.ok){
         const reviewList = await response.json()
@@ -48,8 +48,7 @@ export const getOwnerReviews = () => async dispatch => {
 }
 
 export const reviewForm = (payload, spotId, userObj) => async(dispatch) =>{
-    console.log(payload, "this is my payload")
-    console.log(userObj,"this is the USR OBJ")
+
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
         
         method: "POST",
@@ -60,14 +59,14 @@ export const reviewForm = (payload, spotId, userObj) => async(dispatch) =>{
     if(response.ok) {
         const newReview = await response.json()
         newReview.User = userObj;
-        console.log(newReview.User,"this is review user")
+       
         dispatch(reviewForm(payload, spotId, userObj))
         return newReview
     }
 }
 
 export const deleteReview = (reviewId) => async (dispatch) => {
-    console.log(reviewId, "THIS IS REVIEW ID")
+    
     const response  = await csrfFetch(`/api/reviews/${reviewId}`,{
         method: "DELETE",
     });

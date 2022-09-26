@@ -45,7 +45,7 @@ setPrice(spot.price)
 
 useEffect(() => {
   dispatch(getSpotId(parseInt(spotId))).then((res)=>{
-    console.log(res,spotId,"this is RES")
+    
   }).catch(res => console.log(res,"this is catch res"))
 },[dispatch])
 
@@ -88,7 +88,7 @@ useEffect(() => {
 
     let updatedSpot = await dispatch(editSpot(payload));
     if (updatedSpot) {
-        console.log("MADE IT")
+        
       history.push(`/spots/${updatedSpot.id}`);
     }
   };
