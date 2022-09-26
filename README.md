@@ -25,19 +25,30 @@ Please see all links below for Github Wiki:
 
 
  # This Project was built with:
-- JavaScript
-- POSTgres
-- Sequelize
-- Express
-- React
-- Redux
+ ![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
 # Features
+You will be able to view all spots.
+![1D2E3500-54FF-4A98-AD80-AA9B686ACA7E_1_105_c](https://user-images.githubusercontent.com/93681678/192188926-45c43d80-b4f4-44f0-8b92-34188e864ff1.jpeg)
 
-<img width="1440" alt="Screen Shot 2022-09-25 at 12 59 01 PM" src="https://user-images.githubusercontent.com/93681678/192158168-50b30bf7-22ec-4bd3-a285-dcbcf79be1c8.png">
 
 
-<img width="1440" alt="Screen Shot 2022-09-25 at 1 00 31 PM" src="https://user-images.githubusercontent.com/93681678/192158234-e0277c48-1342-4b06-bdaa-9ae1b6d014a1.png">
+You will be able to log in as a Demo-User to test all features.
+![Screen Shot 2022-09-25 at 10 14 42 PM](https://user-images.githubusercontent.com/93681678/192187641-6ea079af-5bc6-4d90-a5a3-013545e4a95d.jpeg)
 
-<img width="1440" alt="Screen Shot 2022-09-25 at 1 02 09 PM" src="https://user-images.githubusercontent.com/93681678/192158278-8774e4c1-aeba-47cb-85c6-f84d5de74784.png">
+You will able to create a spot..
+![Screen Shot 2022-09-25 at 10 13 45 PM](https://user-images.githubusercontent.com/93681678/192187804-0bb5c91b-ef90-4cc9-a470-c7973930a219.jpeg)
+
+You will be able to Edit a Spot.
+![Screen Shot 2022-09-25 at 10 13 54 PM](https://user-images.githubusercontent.com/93681678/192187852-eda8c87c-080b-43c1-935d-b13a6f53f71c.jpeg)
+
+You will be able to view and delete reviews.
+![Screen Shot 2022-09-25 at 10 14 30 PM](https://user-images.githubusercontent.com/93681678/192187931-bc6d580f-1f8b-44bd-867c-bb79b838cf0f.jpeg)
 
